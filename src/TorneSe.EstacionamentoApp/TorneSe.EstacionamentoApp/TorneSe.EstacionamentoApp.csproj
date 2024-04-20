@@ -8,12 +8,49 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Recursos\botao-home.png" />
+    <None Remove="Recursos\configuracoes.png" />
+    <None Remove="Recursos\dados-do-usuario.png" />
+    <None Remove="Recursos\desligar.png" />
+    <None Remove="Recursos\home.png" />
+    <None Remove="Recursos\liberar_carro.png" />
+    <None Remove="Recursos\registrar_carro.png" />
+    <None Remove="Recursos\relatorio.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Recursos\botao-home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\configuracoes.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\dados-do-usuario.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\desligar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\home.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\liberar_carro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\registrar_carro.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\relatorio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

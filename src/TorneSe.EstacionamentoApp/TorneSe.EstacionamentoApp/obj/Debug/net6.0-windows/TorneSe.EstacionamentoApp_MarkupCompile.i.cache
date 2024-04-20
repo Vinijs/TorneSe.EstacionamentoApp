@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\App.xaml
-11407045341
+71185473865
 
-9-1114097009
+16-1059237358
 219-618347333
-MainWindow.xaml;
+MainWindow.xaml;Views\ConfiguracoesView.xaml;Views\EntradaVeiculosView.xaml;Views\HomeView.xaml;Views\RelatoriosView.xaml;Views\SaidaVeiculosView.xaml;Views\UsuariosView.xaml;
 
 False
 

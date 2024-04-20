@@ -33,7 +33,6 @@ C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.Estacioname
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\MainWindow.g.cs
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\TorneSe.EstacionamentoApp_MarkupCompile.cache
-C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\TorneSe.EstacionamentoApp_MarkupCompile.lref
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\MainWindow.baml
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\TorneSe.EstacionamentoApp.g.resources
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\TorneSe.EstacionamentoApp.GeneratedMSBuildEditorConfig.editorconfig
@@ -46,3 +45,15 @@ C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.Estacioname
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\TorneSe.EstacionamentoApp.pdb
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\TorneSe.EstacionamentoApp.genruntimeconfig.cache
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\ref\TorneSe.EstacionamentoApp.dll
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\ConfiguracoesView.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\EntradaVeiculosView.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\HomeView.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\RelatoriosView.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\SaidaVeiculosView.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\UsuariosView.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\ConfiguracoesView.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\EntradaVeiculosView.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\HomeView.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\RelatoriosView.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\SaidaVeiculosView.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\UsuariosView.g.cs

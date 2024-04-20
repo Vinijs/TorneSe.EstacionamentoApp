@@ -7,7 +7,45 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\ConfiguracoesView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EntradaVeiculosView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\HomeView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\RelatoriosView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\SaidaVeiculosView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\UsuariosView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ConfiguracoesView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\EntradaVeiculosView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\HomeView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\RelatoriosView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\SaidaVeiculosView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\UsuariosView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

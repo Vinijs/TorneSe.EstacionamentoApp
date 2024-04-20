@@ -3,17 +3,78 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TorneSe.EstacionamentoApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <Style x:Key="MenuItem" TargetType="Button">
+            <Setter Property="Padding" Value="10" />
+            <Setter Property="Margin" Value="0 10 5 0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="0 0 0 2" BorderBrush="#FF007ACC" Margin="0 10 5 0">
+                            <ContentPresenter />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="6*" />
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="0" VerticalAlignment="Center">
-            <Label Content="Home"/>
-            <Label Content="Entrada veiculos"/>
+        <StackPanel Grid.Column="0" Background="#FF1C1C1C" >
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Home">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/home.png" Width="40" Height="30"/>
+                    <TextBlock Text="Home" Foreground="White" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="EntradaVeiculos">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/registrar_carro.png" Width="40" Height="30"/>
+                    <TextBlock Text="Entrada Veiculos" Foreground="White" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="SaidaVeiculos">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/liberar_carro.png" Width="40" Height="30"/>
+                    <TextBlock Text="Saída Veiculos" Foreground="White" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Relatorios">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/relatorio.png" Width="40" Height="30"/>
+                    <TextBlock Text="Relatórios" Foreground="White" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Usuarios">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/dados-do-usuario.png" Width="40" Height="30"/>
+                    <TextBlock Text="Usuários" Foreground="White" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Configuracoes">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/configuracoes.png" Width="40" Height="30"/>
+                    <TextBlock Text="Configurações" Foreground="White" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MenuItem}" Click="FecharAplicacao_Click">
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="/Recursos/desligar.png" Width="40" Height="30"/>
+                    <TextBlock Text="Sair" Foreground="White" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button>
         </StackPanel>
+
+        <ContentControl Grid.Column="1" x:Name="contentControl"/>
     </Grid>
 </Window>
