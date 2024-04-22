@@ -31,37 +31,37 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Background="#FF1C1C1C" >
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Home">
+            <Button Style="{StaticResource MenuItem}" Command="{Binding AtualizaViewModel}" CommandParameter="Home" x:Name="Home">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/home.png" Width="40" Height="30"/>
                     <TextBlock Text="Home" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="EntradaVeiculos">
+            <Button Style="{StaticResource MenuItem}" Command="{Binding AtualizaViewModel}" CommandParameter="Entrada Veiculos" x:Name="EntradaVeiculos">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/registrar_carro.png" Width="40" Height="30"/>
                     <TextBlock Text="Entrada Veiculos" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="SaidaVeiculos">
+            <Button Style="{StaticResource MenuItem}" Command="{Binding AtualizaViewModel}" CommandParameter="Saida Veiculos" x:Name="SaidaVeiculos">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/liberar_carro.png" Width="40" Height="30"/>
                     <TextBlock Text="Saída Veiculos" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Relatorios">
+            <Button Style="{StaticResource MenuItem}" Command="{Binding AtualizaViewModel}" CommandParameter="Relatorios" x:Name="Relatorios">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/relatorio.png" Width="40" Height="30"/>
                     <TextBlock Text="Relatórios" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Usuarios">
+            <Button Style="{StaticResource MenuItem}" Command="{Binding AtualizaViewModel}" CommandParameter="Usuarios" x:Name="Usuarios">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/dados-do-usuario.png" Width="40" Height="30"/>
                     <TextBlock Text="Usuários" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Configuracoes">
+            <Button Style="{StaticResource MenuItem}" Command="{Binding AtualizaViewModel}" CommandParameter="Configuracoes" x:Name="Configuracoes">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/configuracoes.png" Width="40" Height="30"/>
                     <TextBlock Text="Configurações" Foreground="White" VerticalAlignment="Center" />
@@ -75,6 +75,6 @@
             </Button>
         </StackPanel>
 
-        <ContentControl Grid.Column="1" x:Name="contentControl"/>
+        <ContentControl Grid.Column="1" Content="{Binding AtualViewModel}" x:Name="contentControl"/>
     </Grid>
 </Window>
