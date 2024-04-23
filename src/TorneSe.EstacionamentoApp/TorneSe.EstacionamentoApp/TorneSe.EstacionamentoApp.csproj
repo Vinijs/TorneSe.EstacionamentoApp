@@ -16,6 +16,7 @@
     <None Remove="Recursos\liberar_carro.png" />
     <None Remove="Recursos\registrar_carro.png" />
     <None Remove="Recursos\relatorio.png" />
+    <None Remove="Recursos\tornese.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,6 +50,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Recursos\relatorio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\tornese.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

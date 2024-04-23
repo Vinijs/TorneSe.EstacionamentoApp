@@ -1,7 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
-using TorneSe.EstacionamentoApp.Business.Interfaces;
-using TorneSe.EstacionamentoApp.Views;
+using TorneSe.EstacionamentoApp.Enums;
+using TorneSe.EstacionamentoApp.Factories.Interfaces;
 
 namespace TorneSe.EstacionamentoApp;
 
@@ -10,32 +11,22 @@ namespace TorneSe.EstacionamentoApp;
 /// </summary>
 public partial class MainWindow : Window
 {
-    private readonly IExemploBusiness _business;
-    public MainWindow(IExemploBusiness business)
+    private readonly IViewFactory _viewFactory;
+    public MainWindow(IViewFactory viewFactory)
     {
         InitializeComponent();
-        contentControl.Content = new HomeView();
-        _business = business;
+        _viewFactory = viewFactory;
+        contentControl.Content = _viewFactory.CriarView(Paginas.Home);
     }
 
     private void MenuItem_Click(object sender, RoutedEventArgs e)
     {
-        var button = sender as Button;
-
-        if (button is null)
+        if (sender is not Button button)
             return;
 
-        UserControl view = button.Name switch 
-        {
-            "Home" => new HomeView(),
-            "EntradaVeiculos" => new EntradaVeiculosView(),
-            "SaidaVeiculos" => new SaidaVeiculosView(),
-            "Relatorios" => new RelatoriosView(),
-            "Usuarios" => new UsuariosView(),
-            "Configuracoes" => new ConfiguracoesView()
-        };
+        var nomeView = (Paginas)Enum.Parse(typeof(Paginas), button.CommandParameter.ToString()!);
 
-        contentControl.Content = view;
+        contentControl.Content = _viewFactory.CriarView(nomeView);
     }
 
     private void FecharAplicacao_Click(object sender, RoutedEventArgs e) 

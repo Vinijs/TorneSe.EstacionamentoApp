@@ -32,37 +32,37 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0" Background="#FF1C1C1C" >
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Home">
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="Home">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/home.png" Width="40" Height="30"/>
                     <TextBlock Text="Home" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="EntradaVeiculos">
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="EntradaVeiculos">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/registrar_carro.png" Width="40" Height="30"/>
                     <TextBlock Text="Entrada Veiculos" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="SaidaVeiculos">
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="SaidaVeiculos">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/liberar_carro.png" Width="40" Height="30"/>
                     <TextBlock Text="Saída Veiculos" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Relatorios">
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="Relatorios">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/relatorio.png" Width="40" Height="30"/>
                     <TextBlock Text="Relatórios" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Usuarios">
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="Usuarios">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/dados-do-usuario.png" Width="40" Height="30"/>
                     <TextBlock Text="Usuários" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" x:Name="Configuracoes">
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="Configuracoes">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/configuracoes.png" Width="40" Height="30"/>
                     <TextBlock Text="Configurações" Foreground="White" VerticalAlignment="Center" />

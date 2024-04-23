@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TorneSe.EstacionamentoApp.Views;
 
 namespace TorneSe.EstacionamentoApp.Extensions;
 public static class AddViewsHostBuilderExtensions
@@ -9,6 +10,12 @@ public static class AddViewsHostBuilderExtensions
         hostBuilder.ConfigureServices(services =>
         {
             services.AddSingleton<MainWindow>();
+            services.AddTransient<HomeView>();
+            services.AddTransient<ConfiguracoesView>();
+            services.AddTransient<EntradaVeiculosView>();
+            services.AddTransient<SaidaVeiculosView>();
+            services.AddTransient<RelatoriosView>();
+            services.AddTransient<UsuariosView>();
         });
         return hostBuilder;
     } 

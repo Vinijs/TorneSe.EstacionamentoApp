@@ -17,6 +17,7 @@ public partial class App : Application
             .CreateDefaultBuilder()
             .AddViews()
             .AddBusiness()
+            .AddFactories()
             .Build();
     }
 
