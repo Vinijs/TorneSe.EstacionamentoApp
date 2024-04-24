@@ -20,13 +20,6 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <Grid.Background>
-                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                    <GradientStop Color="#0077C8" Offset="0"/>
-                    <GradientStop Color="#2D3E8C" Offset="0.5"/>
-                    <GradientStop Color="#9400D3" Offset="1"/>
-                </LinearGradientBrush>
-            </Grid.Background>
             <StackPanel Grid.Row="0" Orientation="Vertical" HorizontalAlignment="Left">
                 <Grid>
                     <Grid.ColumnDefinitions>

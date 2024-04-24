@@ -14,8 +14,11 @@
     <None Remove="Recursos\desligar.png" />
     <None Remove="Recursos\home.png" />
     <None Remove="Recursos\liberar_carro.png" />
+    <None Remove="Recursos\parking.png" />
     <None Remove="Recursos\registrar_carro.png" />
     <None Remove="Recursos\relatorio.png" />
+    <None Remove="Recursos\seta_direita.png" />
+    <None Remove="Recursos\seta_esquerda.png" />
     <None Remove="Recursos\tornese.png" />
   </ItemGroup>
 
@@ -46,10 +49,19 @@
     <Resource Include="Recursos\liberar_carro.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Recursos\parking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Recursos\registrar_carro.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Recursos\relatorio.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\seta_direita.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Recursos\seta_esquerda.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Recursos\tornese.png">
