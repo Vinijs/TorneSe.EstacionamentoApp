@@ -24,7 +24,7 @@
                 Background="{StaticResource VagaImage}"
                 x:Name="cardBorder">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="A-11" Style="{StaticResource InfoTextBlock}"/>
+                <TextBlock x:Name="vagaNomeTextBlock" Text="A-11" Style="{StaticResource InfoTextBlock}"/>
                 <TextBlock x:Name="placaTextblock" Text="NAH-0987" Style="{StaticResource InfoTextBlock}"/>
                 <TextBlock x:Name="proprietarioTextblock" Text="José Ferreira" Style="{StaticResource InfoTextBlock}"/>
             </StackPanel>
