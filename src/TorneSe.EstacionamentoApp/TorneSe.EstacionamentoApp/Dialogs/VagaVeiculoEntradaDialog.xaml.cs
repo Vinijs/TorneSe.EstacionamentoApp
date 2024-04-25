@@ -5,9 +5,9 @@ namespace TorneSe.EstacionamentoApp.Dialogs;
 /// <summary>
 /// Lógica interna para VagaVeiculoDialog.xaml
 /// </summary>
-public partial class VagaVeiculoDialog : Window
+public partial class VagaVeiculoEntradaDialog : Window
 {
-    public VagaVeiculoDialog()
+    public VagaVeiculoEntradaDialog()
     {
         InitializeComponent();
         Owner = Application.Current.MainWindow;

@@ -1,0 +1,21 @@
+﻿<Window x:Class="TorneSe.EstacionamentoApp.Dialogs.VagaVeiculoSaidaDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TorneSe.EstacionamentoApp.Dialogs"
+        mc:Ignorable="d"
+        Title="Saída Veículo" Height="450" Width="600">
+    <Grid>
+        <TextBlock 
+            Text="Saída Veículo"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Foreground="Black"
+            FontWeight="Bold"
+            FontSize="24"
+            HorizontalAlignment="Center"
+            Margin="0 0 0 30"
+            />
+    </Grid>
+</Window>

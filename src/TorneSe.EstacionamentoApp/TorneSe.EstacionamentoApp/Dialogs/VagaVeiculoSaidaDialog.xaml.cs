@@ -10,18 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using TorneSe.EstacionamentoApp.Store;
 
-namespace TorneSe.EstacionamentoApp.Views
+namespace TorneSe.EstacionamentoApp.Dialogs
 {
     /// <summary>
-    /// Interação lógica para EntradaVeiculosView.xam
+    /// Lógica interna para VagaVeiculoSaidaDialog.xaml
     /// </summary>
-    public partial class EntradaVeiculosView : UserControl
+    public partial class VagaVeiculoSaidaDialog : Window
     {
-        public EntradaVeiculosView(VeiculosStore veiculosStore)
+        public VagaVeiculoSaidaDialog()
         {
             InitializeComponent();
         }

@@ -46,7 +46,7 @@
                     <TextBlock Text="Home" Foreground="White" VerticalAlignment="Center" />
                 </StackPanel>
             </Button>
-            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="EntradaVeiculos">
+            <Button Style="{StaticResource MenuItem}" Click="MenuItem_Click" CommandParameter="EntradaVeiculos" Cursor="Hand">
                 <StackPanel Orientation="Horizontal">
                     <Image Source="/Recursos/registrar_carro.png" Width="40" Height="30"/>
                     <TextBlock Text="Entrada Veiculos" Foreground="White" VerticalAlignment="Center" />

@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="100" d:DesignWidth="200">
+             d:DesignHeight="100" d:DesignWidth="200"
+             Loaded="CardControl_Loaded">
     <Grid>
         <Grid.Resources>
             <ImageBrush x:Key="VagaImage" ImageSource="../Recursos/parking.png" Stretch="Fill"/>
@@ -20,11 +21,12 @@
                 CornerRadius="12"
                 Margin="5"
                 MouseLeftButtonDown="MouseClick_Event"
-                Background="{StaticResource VagaImage}">
+                Background="{StaticResource VagaImage}"
+                x:Name="cardBorder">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="A-11" Style="{StaticResource InfoTextBlock}"/>
-                <TextBlock Text="NAH-0987"  Visibility="Collapsed" Style="{StaticResource InfoTextBlock}"/>
-                <TextBlock Text="José Ferreira" Visibility="Collapsed" Style="{StaticResource InfoTextBlock}"/>
+                <TextBlock x:Name="placaTextblock" Text="NAH-0987" Style="{StaticResource InfoTextBlock}"/>
+                <TextBlock x:Name="proprietarioTextblock" Text="José Ferreira" Style="{StaticResource InfoTextBlock}"/>
             </StackPanel>
             
         </Border>

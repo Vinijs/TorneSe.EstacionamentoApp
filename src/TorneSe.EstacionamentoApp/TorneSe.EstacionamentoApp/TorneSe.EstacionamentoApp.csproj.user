@@ -10,7 +10,10 @@
     <Compile Update="Controls\VagaVeiculoCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Dialogs\VagaVeiculoDialog.xaml.cs">
+    <Compile Update="Dialogs\VagaVeiculoEntradaDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Dialogs\VagaVeiculoSaidaDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\ConfiguracoesView.xaml.cs">
@@ -37,6 +40,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\VagaVeiculoDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialogs\VagaVeiculoSaidaDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">

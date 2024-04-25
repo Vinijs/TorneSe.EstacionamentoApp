@@ -15,9 +15,10 @@ public partial class App : Application
     {
         _host = Host
             .CreateDefaultBuilder()
-            .AddViews()
+            .AddStores()
             .AddBusiness()
             .AddFactories()
+            .AddViews()
             .Build();
     }
 
