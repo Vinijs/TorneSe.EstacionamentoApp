@@ -7,7 +7,10 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Controls\VagaVeiculoCardControl.xaml.cs">
+    <Compile Update="Componentes\VagasGridControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Componentes\VagaVeiculoCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Dialogs\VagaVeiculoEntradaDialog.xaml.cs">
@@ -36,7 +39,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Controls\VagaVeiculoCardControl.xaml">
+    <Page Update="Componentes\VagasGridControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Componentes\VagaVeiculoCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\VagaVeiculoDialog.xaml">

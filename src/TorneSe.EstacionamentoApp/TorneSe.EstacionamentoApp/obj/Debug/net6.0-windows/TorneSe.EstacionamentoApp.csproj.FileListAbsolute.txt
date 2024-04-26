@@ -57,3 +57,13 @@ C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.Estacioname
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\RelatoriosView.g.cs
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\SaidaVeiculosView.g.cs
 C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Views\UsuariosView.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Dialogs\VagaVeiculoDialog.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Dialogs\VagaVeiculoDialog.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\TorneSe.EstacionamentoApp_MarkupCompile.lref
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Dialogs\VagaVeiculoSaidaDialog.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Dialogs\VagaVeiculoSaidaDialog.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Componentes\VagaVeiculoCardControl.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Componentes\VagaVeiculoCardControl.g.cs
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Componentes\VagasGridControl.baml
+C:\Users\Vinicius\source\repos\TorneSe.EstacionamentoApp\src\TorneSe.EstacionamentoApp\TorneSe.EstacionamentoApp\obj\Debug\net6.0-windows\Componentes\VagasGridControl.g.cs
