@@ -39,9 +39,26 @@
                    VerticalAlignment="Center"
                    Grid.ColumnSpan="5"
                    Grid.Row="0"/>
+
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="5" Margin="10 0 10 0">
+            <Label Content="Busca por nome vaga:"
+                       FontSize="16"
+                       Foreground="White"
+                       HorizontalAlignment="Right"
+                       FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+            <TextBox x:Name="buscaVagaTextBox"
+                     FontSize="16"
+                     HorizontalAlignment="Right"
+                     VerticalAlignment="Center"
+                     Width="200"
+                     Height="20"
+                     TextChanged="VagaBuscaTextBox_TextChanged"/>
+        </StackPanel>
+        
         <ContentControl x:Name="vagasControl" Grid.Row="1" Grid.ColumnSpan="5"/>
 
-        <StackPanel Grid.Row="2" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 0 0 10">
+        <StackPanel Grid.Row="3" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 0 0 10">
             <Button
                 Background="{StaticResource SetaVoltarImage}"
                 Style="{StaticResource BotoesNavegacao}"

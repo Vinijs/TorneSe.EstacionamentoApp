@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Controls;
-using TorneSe.EstacionamentoApp.Data.Entidades;
+using TorneSe.EstacionamentoApp.Data.Dtos;
 
 namespace TorneSe.EstacionamentoApp.Componentes;
 
@@ -10,10 +10,10 @@ namespace TorneSe.EstacionamentoApp.Componentes;
 /// </summary>
 public partial class VagasGridControl : UserControl
 {
-    private readonly List<Vaga> _vagas;
+    private readonly List<ResumoVaga> _vagas;
     private readonly string _donoComponente;
 
-    public VagasGridControl(List<Vaga> vagas, string donoComponente)
+    public VagasGridControl(List<ResumoVaga> vagas, string donoComponente)
     {
         InitializeComponent();
         _vagas = vagas;
@@ -32,7 +32,9 @@ public partial class VagasGridControl : UserControl
                 DonoComponente = _donoComponente
             };
 
-            cardVaga.vagaNomeTextBlock.Text = _vagas[i].Nome;
+            cardVaga.vagaNomeTextBlock.Text = _vagas[i].NomeVaga;
+            cardVaga.placaTextblock.Text = _vagas[i].Placa;
+            cardVaga.proprietarioTextblock.Text = _vagas[i].NomeCliente;
 
             var coluna = i % 5;
             var linha = (i / 5) + 1;
