@@ -57,7 +57,7 @@
     <Page Update="Componentes\VagaVeiculoCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Dialogs\VagaVeiculoDialog.xaml">
+    <Page Update="Dialogs\VagaVeiculoEntradaDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Dialogs\VagaVeiculoSaidaDialog.xaml">

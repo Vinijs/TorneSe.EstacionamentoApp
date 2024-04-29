@@ -15,13 +15,21 @@
                 <Setter Property="Margin" Value="5"/>
             </Style>
             <Style x:Key="TextBoxForm" TargetType="TextBox">
-                <Setter Property="Foreground" Value="White"/>
-                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="Foreground" Value="#333333"/>
                 <Setter Property="FontSize" Value="16"/>
-                <Setter Property="Margin" Value="5"/>
-                <Setter Property="Background" Value="#AAAAAA"/>
+                <Setter Property="Margin" Value="5 0 5 0"/>
+                <Setter Property="Background" Value="White"/>
                 <Setter Property="VerticalAlignment" Value="Stretch"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
+            </Style>
+            <Style x:Key="TextBlockForm" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="Red"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+                <Setter Property="Margin" Value="5 0 0 0"/>
+                <Setter Property="Visibility" Value="Collapsed"/>
+
             </Style>
             <Style x:Key="ButtonForm" TargetType="Button">
                 <Setter Property="Foreground" Value="White"/>
@@ -29,6 +37,7 @@
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="Padding" Value="10"/>
             </Style>
+            
         </Grid.Resources>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -55,37 +64,76 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <TextBlock 
-            Text="Descrição Veículo"
-            Grid.Row="0"
-            Grid.ColumnSpan="2"
-            Foreground="White"
-            FontWeight="Bold"
-            FontSize="24"
-            HorizontalAlignment="Center"
-            Margin="0 0 0 30"
+
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Margin="10">
+            <Image Source="/Recursos/registrar_carro.png" Width="40" Height="40" Margin="10"/>
+            <TextBlock 
+                Text="Descrição Veículo"
+                Foreground="White"
+                FontWeight="Bold"
+                FontSize="24"
+                VerticalAlignment="Center"
+                Margin="10"
             />
+        </StackPanel>
         <Label Style="{StaticResource LabelForm}" Content="Placa:" Grid.Row="1" Grid.Column="0"/>
-        <TextBox Style="{StaticResource TextBoxForm}" x:Name="placaTextBox" Grid.Row="1" Grid.Column="1"/>
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBox Style="{StaticResource TextBoxForm}" x:Name="placaTextBox"/>
+            <TextBlock
+                Text="A placa do veiculo deve ser informada"
+                Style="{StaticResource TextBlockForm}"
+                x:Name="placaInvalidaTextBlock"/>
+        </StackPanel>
+        
 
         <Label Style="{StaticResource LabelForm}" Content="Marca:" Grid.Row="2" Grid.Column="0"/>
-        <TextBox Style="{StaticResource TextBoxForm}" x:Name="marcaTextBox" Grid.Row="2" Grid.Column="1"/>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <TextBox Style="{StaticResource TextBoxForm}" x:Name="marcaTextBox"/>
+            <TextBlock
+                Text="A marca do veiculo deve ser informada"
+                Style="{StaticResource TextBlockForm}"
+                x:Name="marcaInvalidaTextBlock"/>
+        </StackPanel>
+        
 
         <Label Style="{StaticResource LabelForm}" Content="Modelo:" Grid.Row="3" Grid.Column="0"/>
-        <TextBox Style="{StaticResource TextBoxForm}" x:Name="modeloTextBox" Grid.Row="3" Grid.Column="1"/>
+        <StackPanel Grid.Row="3" Grid.Column="1">
+            <TextBox Style="{StaticResource TextBoxForm}" x:Name="modeloTextBox"/>
+            <TextBlock
+                Text="O modelo do veiculo deve ser informado"
+                Style="{StaticResource TextBlockForm}"
+                x:Name="modeloInvalidoTextBlock"/>
+        </StackPanel>
 
         <Label Style="{StaticResource LabelForm}" Content="Ano:" Grid.Row="4" Grid.Column="0"/>
-        <TextBox Style="{StaticResource TextBoxForm}" x:Name="anoTextBox" Grid.Row="4" Grid.Column="1"/>
+        <StackPanel Grid.Row="4" Grid.Column="1">
+            <TextBox Style="{StaticResource TextBoxForm}" x:Name="anoTextBox"/>
+            <TextBlock
+                Text="O ano do veiculo deve ser informado"
+                Style="{StaticResource TextBlockForm}"
+                x:Name="anoInvalidoTextBlock"/>
+        </StackPanel>
+        
 
         <Label Style="{StaticResource LabelForm}" Content="Cor:" Grid.Row="5" Grid.Column="0"/>
-        <TextBox Style="{StaticResource TextBoxForm}" x:Name="corTextBox" Grid.Row="5" Grid.Column="1"/>
-
+        <StackPanel Grid.Row="5" Grid.Column="1">
+            <TextBox Style="{StaticResource TextBoxForm}" x:Name="corTextBox"/>
+            <TextBlock
+                Text="A cor do veiculo deve ser informada"
+                Style="{StaticResource TextBlockForm}"
+                x:Name="corInvalidaTextBlock"/>
+        </StackPanel>       
+        
         <StackPanel Orientation="Horizontal" 
                     Grid.Row="6"
                     Grid.ColumnSpan="2"
                     HorizontalAlignment="Center"
                     Margin="30">
-            <Button Style="{StaticResource ButtonForm}" Margin="0 0 10 0" Background="LightGreen" Content="Confirmar" Click="Confirmar_Click" />
+            <Button Style="{StaticResource ButtonForm}" Margin="0 0 10 0" Background="Green" Content="Confirmar" Click="Confirmar_Click" />
             <Button Style="{StaticResource ButtonForm}" Background="Red" Content="Cancelar" Click="Cancelar_Click"/>
         </StackPanel>
     </Grid>
