@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Componentes;
@@ -32,9 +33,14 @@ public partial class SaidaVeiculosView : UserControl
         var vagas = _veiculosStore.VagasOcupadas.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
 
         vagasControl.Content = new VagasGridControl(vagas, _componente);
+        vagasControl.Visibility = Visibility.Visible;
+        loadingControl.Visibility = Visibility.Collapsed;
+        buscaVagaTextBox.IsEnabled = true;
+        voltarButton.Visibility = Visibility.Visible;
+        proximoButton.Visibility = Visibility.Visible;
     }
 
-    private void ProximasVagas_ButtonClick(object sender, System.Windows.RoutedEventArgs e)
+    private async void ProximasVagas_ButtonClick(object sender, System.Windows.RoutedEventArgs e)
     {
         if (_pagina == _totalPaginas)
         {
@@ -42,15 +48,30 @@ public partial class SaidaVeiculosView : UserControl
             return;
         }
 
+        vagasControl.Visibility = Visibility.Collapsed;
+        loadingControl.Visibility = Visibility.Visible;
+        buscaVagaTextBox.IsEnabled = false;
+        voltarButton.Visibility = Visibility.Hidden;
+        proximoButton.Visibility = Visibility.Hidden;
+
+        await Task.Delay(3000);
 
         _pagina += 1;
         MontarComponente();
     }
 
-    private void VoltarVagas_ButtonClick(object sender, RoutedEventArgs e)
+    private async void VoltarVagas_ButtonClick(object sender, RoutedEventArgs e)
     {
         if (_pagina is _paginaInicial)
             return;
+
+        vagasControl.Visibility = Visibility.Collapsed;
+        loadingControl.Visibility = Visibility.Visible;
+        buscaVagaTextBox.IsEnabled = false;
+        voltarButton.Visibility = Visibility.Hidden;
+        proximoButton.Visibility = Visibility.Hidden;
+
+        await Task.Delay(3000);
 
         _pagina -= 1;
         MontarComponente();

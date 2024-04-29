@@ -27,14 +27,10 @@ public partial class VagasGridControl : UserControl
 
         for (int i = 0; i < _vagas.Count; i++)
         {
-            VagaVeiculoCardControl cardVaga = new()
+            VagaVeiculoCardControl cardVaga = new(_vagas[i])
             {
                 DonoComponente = _donoComponente
             };
-
-            cardVaga.vagaNomeTextBlock.Text = _vagas[i].NomeVaga;
-            cardVaga.placaTextblock.Text = _vagas[i].Placa;
-            cardVaga.proprietarioTextblock.Text = _vagas[i].NomeCliente;
 
             var coluna = i % 5;
             var linha = (i / 5) + 1;

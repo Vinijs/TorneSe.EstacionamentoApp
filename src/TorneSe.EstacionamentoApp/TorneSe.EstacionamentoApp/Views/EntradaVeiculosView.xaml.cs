@@ -36,10 +36,13 @@ public partial class EntradaVeiculosView : UserControl
         var vagas = _veiculosStore.VagasLivres.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
 
         vagasControl.Content = new VagasGridControl(vagas, _componente);
-        
+
+        buscaVagaTextBox.IsEnabled = true;
+        voltarButton.Visibility = Visibility.Visible;
+        proximoButton.Visibility = Visibility.Visible;        
     }
 
-    private void ProximasVagas_ButtonClick(object sender, System.Windows.RoutedEventArgs e)
+    private async void ProximasVagas_ButtonClick(object sender, System.Windows.RoutedEventArgs e)
     {
         if (_pagina == _totalPaginas)
         {
@@ -47,24 +50,36 @@ public partial class EntradaVeiculosView : UserControl
             return;
         }
 
-        Task.Delay(3000).Wait();
+        vagasControl.Content = new LoadingSquareControl();
+
+        buscaVagaTextBox.IsEnabled = false;
+        voltarButton.Visibility = Visibility.Hidden;
+        proximoButton.Visibility = Visibility.Hidden;
+
+        await Task.Delay(3000);
 
         _pagina += 1;
         MontarComponente();
     }
 
-    private void VoltarVagas_ButtonClick(object sender, RoutedEventArgs e)
+    private async void VoltarVagas_ButtonClick(object sender, RoutedEventArgs e)
     {
         if(_pagina is _paginaInicial)
             return;
 
-         Task.Delay(3000).Wait();
+        vagasControl.Content = new LoadingSquareControl();
+
+        buscaVagaTextBox.IsEnabled = false;
+        voltarButton.Visibility = Visibility.Hidden;
+        proximoButton.Visibility = Visibility.Hidden;
+
+        await Task.Delay(3000);
 
         _pagina -= 1;
         MontarComponente();
     }
 
-    private void VagaBuscaTextBox_TextChanged(object sender, TextChangedEventArgs e)
+    private async void VagaBuscaTextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (sender is not TextBox textBox)
             return;

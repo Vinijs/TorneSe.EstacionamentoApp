@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:componentes="clr-namespace:TorneSe.EstacionamentoApp.Componentes"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
@@ -56,14 +57,17 @@
         </StackPanel>
 
         <ContentControl x:Name="vagasControl" Grid.Row="1" Grid.ColumnSpan="5"/>
+        <componentes:LoadingSquareControl Grid.Row="1" Grid.ColumnSpan="5" Visibility="Collapsed" x:Name="loadingControl" />
 
         <StackPanel Grid.Row="2" Grid.ColumnSpan="5" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10 0 0 10">
             <Button 
+                x:Name="voltarButton"
                 Background="{StaticResource SetaVoltarImage}"
                 Style="{StaticResource BotoesNavegacao}"
                 ToolTip="Voltar"
                 Click="VoltarVagas_ButtonClick"/>
-            <Button 
+            <Button
+                x:Name="proximoButton"
                 Background="{StaticResource SetaProxImage}"
                 Style="{StaticResource BotoesNavegacao}"
                 ToolTip="Proximo"

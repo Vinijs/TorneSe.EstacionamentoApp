@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1000" 
+        Title="Estacionamento App" Height="600" Width="1000" 
         WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="MenuItem" TargetType="Button">

@@ -1,6 +1,7 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using TorneSe.EstacionamentoApp.Data.Dtos;
 using TorneSe.EstacionamentoApp.Dialogs;
 
 namespace TorneSe.EstacionamentoApp.Controls;
@@ -13,11 +14,14 @@ public partial class VagaVeiculoCardControl : UserControl
     private string CorBordaCard { get; set; }
     public string DonoComponente { get; set; }
 
-    public VagaVeiculoCardControl()
+    public VagaVeiculoCardControl(ResumoVaga resumoVaga)
     {
         InitializeComponent();
         CorBordaCard = "Green";
         DonoComponente = "Entrada";
+        vagaNomeTextBlock.Text = resumoVaga.NomeVaga;
+        placaTextblock.Text = resumoVaga.Placa;
+        proprietarioTextblock.Text = resumoVaga.NomeCliente;
     }
 
     private void MouseClick_Event(object sender, MouseButtonEventArgs e)

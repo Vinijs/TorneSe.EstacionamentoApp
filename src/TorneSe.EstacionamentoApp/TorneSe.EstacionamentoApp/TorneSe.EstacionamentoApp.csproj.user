@@ -7,6 +7,12 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Componentes\LoadingControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Componentes\LoadingSquareControl.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Componentes\VagasGridControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -39,6 +45,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Componentes\LoadingControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Componentes\LoadingSquareControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Componentes\VagasGridControl.xaml">
       <SubType>Designer</SubType>
     </Page>
