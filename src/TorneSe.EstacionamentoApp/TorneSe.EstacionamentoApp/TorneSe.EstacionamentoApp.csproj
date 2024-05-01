@@ -5,23 +5,27 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <ApplicationIcon>Recursos\tornese.ico</ApplicationIcon>
+    <ApplicationIcon>UI\Recursos\tornese.ico</ApplicationIcon>
     <UseWindowsForms>True</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Recursos\botao-home.png" />
-    <None Remove="Recursos\configuracoes.png" />
-    <None Remove="Recursos\dados-do-usuario.png" />
-    <None Remove="Recursos\desligar.png" />
-    <None Remove="Recursos\home.png" />
-    <None Remove="Recursos\liberar_carro.png" />
-    <None Remove="Recursos\parking.png" />
-    <None Remove="Recursos\registrar_carro.png" />
-    <None Remove="Recursos\relatorio.png" />
-    <None Remove="Recursos\seta_direita.png" />
-    <None Remove="Recursos\seta_esquerda.png" />
-    <None Remove="Recursos\tornese.png" />
+    <None Remove="UI\Recursos\botao-home.png" />
+    <None Remove="UI\Recursos\configuracoes.png" />
+    <None Remove="UI\Recursos\dados-do-usuario.png" />
+    <None Remove="UI\Recursos\desligar.png" />
+    <None Remove="UI\Recursos\home.png" />
+    <None Remove="UI\Recursos\liberar_carro.png" />
+    <None Remove="UI\Recursos\parking.png" />
+    <None Remove="UI\Recursos\registrar_carro.png" />
+    <None Remove="UI\Recursos\relatorio.png" />
+    <None Remove="UI\Recursos\seta_direita.png" />
+    <None Remove="UI\Recursos\seta_esquerda.png" />
+    <None Remove="UI\Recursos\tornese.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="UI\Recursos\tornese.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -29,50 +33,46 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Recursos\botao-home.png">
+    <Resource Include="UI\Recursos\botao-home.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\configuracoes.png">
+    <Resource Include="UI\Recursos\configuracoes.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\dados-do-usuario.png">
+    <Resource Include="UI\Recursos\dados-do-usuario.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\desligar.png">
+    <Resource Include="UI\Recursos\desligar.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\home.png">
+    <Resource Include="UI\Recursos\home.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\liberar_carro.png">
+    <Resource Include="UI\Recursos\liberar_carro.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\parking.png">
+    <Resource Include="UI\Recursos\parking.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\registrar_carro.png">
+    <Resource Include="UI\Recursos\registrar_carro.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\relatorio.png">
+    <Resource Include="UI\Recursos\relatorio.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\seta_direita.png">
+    <Resource Include="UI\Recursos\seta_direita.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\seta_esquerda.png">
+    <Resource Include="UI\Recursos\seta_esquerda.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Recursos\tornese.png">
+    <Resource Include="UI\Recursos\tornese.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Business\Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Recursos\tornese.ico">
+    <None Update="UI\Recursos\tornese.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

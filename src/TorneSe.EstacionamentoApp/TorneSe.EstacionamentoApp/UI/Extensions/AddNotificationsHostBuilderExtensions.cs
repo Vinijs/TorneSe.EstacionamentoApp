@@ -16,7 +16,7 @@ public static class AddNotificationsHostBuilderExtensions
         {
             Text = "Tornese Estacionamento App",
             Visible = true,
-            Icon = new System.Drawing.Icon("Recursos/tornese.ico")
+            Icon = new System.Drawing.Icon("UI/Recursos/tornese.ico")
         });
             services.AddTransient<INotificationService, WindowsNotificationService>();
         });

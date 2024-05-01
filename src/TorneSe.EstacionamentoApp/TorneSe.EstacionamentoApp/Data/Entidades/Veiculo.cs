@@ -9,6 +9,4 @@ public class Veiculo
     public string Cor { get; set; }
     public string Ano { get; set; }
     public int IdCliente { get; set; }
-
-    public Cliente Cliente { get; set; }
 }

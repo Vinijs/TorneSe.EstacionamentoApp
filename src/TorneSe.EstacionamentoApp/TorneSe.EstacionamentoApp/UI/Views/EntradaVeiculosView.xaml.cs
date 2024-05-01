@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Componentes;
 using TorneSe.EstacionamentoApp.Controls;
 using TorneSe.EstacionamentoApp.Store;
+using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Views;
 
@@ -15,6 +16,8 @@ namespace TorneSe.EstacionamentoApp.Views;
 public partial class EntradaVeiculosView : UserControl
 {
     private readonly VeiculosStore _veiculosStore;
+    private readonly IVeiculoBusiness _veiculoBusiness;
+
     private int _pagina = 1;
     private const int _paginaInicial = 1;
     private int _porPagina = 20;
@@ -23,12 +26,13 @@ public partial class EntradaVeiculosView : UserControl
 
     private const string _componente = "Entrada";
 
-    public EntradaVeiculosView(VeiculosStore veiculosStore)
+    public EntradaVeiculosView(VeiculosStore veiculosStore, IVeiculoBusiness veiculoBusiness)
     {
         InitializeComponent();
         _veiculosStore = veiculosStore;
         _totalPaginas = (int)Math.Ceiling(_veiculosStore.VagasLivres.Count / (double)_porPagina);
         MontarComponente();
+        _veiculoBusiness = veiculoBusiness;
     }
 
     private void MontarComponente()

@@ -13,6 +13,8 @@ public partial class VagaVeiculoCardControl : UserControl
 {
     private string CorBordaCard { get; set; }
     public string DonoComponente { get; set; }
+    private VagaVeiculoEntradaDialog _dialogEntrada;
+    private VagaVeiculoSaidaDialog _dialogSaida;
 
     public VagaVeiculoCardControl(ResumoVaga resumoVaga)
     {
@@ -21,20 +23,20 @@ public partial class VagaVeiculoCardControl : UserControl
         DonoComponente = "Entrada";
         vagaNomeTextBlock.Text = resumoVaga.NomeVaga;
         placaTextblock.Text = resumoVaga.Placa;
-        proprietarioTextblock.Text = resumoVaga.NomeCliente;
+        proprietarioTextblock.Text = resumoVaga.ModeloMarca;
+        _dialogEntrada = new VagaVeiculoEntradaDialog();
+        _dialogSaida = new VagaVeiculoSaidaDialog();
     }
 
     private void MouseClick_Event(object sender, MouseButtonEventArgs e)
     {
         if(DonoComponente is "Saida")
         {
-            var dialogSaida = new VagaVeiculoSaidaDialog();
-            dialogSaida.ShowDialog();
+            _dialogSaida.ShowDialog();
         }
         else
         {
-            var dialogEntrada = new VagaVeiculoEntradaDialog();
-            dialogEntrada.ShowDialog();
+            _dialogEntrada.ShowDialog();
         }
     }
 

@@ -37,11 +37,11 @@ public class VeiculosStore
     public void CriarVagasOcupadas()
     {
         var vagasOcupadasPrimeiroAndar = Enumerable.Range(1, 20)
-            .Select(x => new ResumoVaga($"A-{x}", "NAH-0987", "José Ferreira"))
+            .Select(x => new ResumoVaga($"A-{x}", "HGT-9878", "Golf/Volkswagen"))
             .ToList();
 
         var vagasOcupadasSegundoAndar = Enumerable.Range(1, 15)
-            .Select(x => new ResumoVaga($"B-{x}", "NAH-0987", "José Ferreira"))
+            .Select(x => new ResumoVaga($"B-{x}", "NAH-0987", "Corsa/Chevrolet"))
             .ToList();
 
         _vagasOcupadas.AddRange(vagasOcupadasPrimeiroAndar);

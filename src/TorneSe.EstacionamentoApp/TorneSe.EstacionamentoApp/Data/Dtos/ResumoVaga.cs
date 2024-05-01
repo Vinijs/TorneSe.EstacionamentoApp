@@ -4,12 +4,12 @@ public class ResumoVaga
 {
     public string NomeVaga { get; set; } = string.Empty;
     public string Placa { get; set; } = null!;
-    public string NomeCliente { get; set; }
+    public string ModeloMarca { get; set; }
 
-    public ResumoVaga(string nomeVaga, string placa = "", string nomeCliente = "")
+    public ResumoVaga(string nomeVaga, string placa = "", string modeloMarca = "")
     {
         NomeVaga = nomeVaga;
         Placa = placa;
-        NomeCliente = nomeCliente;
+        ModeloMarca = modeloMarca;
     }
 }

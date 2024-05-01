@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using TorneSe.EstacionamentoApp.Data.Entidades;
 
 namespace TorneSe.EstacionamentoApp.Dialogs;
 
@@ -21,7 +22,11 @@ public partial class VagaVeiculoEntradaDialog : Window
         _bordaPadrao = placaTextBox.BorderThickness;
         _corPadrao = corTextBox.BorderBrush;
         _visibilidadepadrao = placaInvalidaTextBlock.Visibility;
-
+        placaVeiculoComboBox.ItemsSource = new Veiculo[] {
+            new Veiculo { Id = 1, Placa = "ABC-1234", Modelo = "Fiat", Marca = "Uno", Ano = "2020" },
+            new Veiculo { Id = 2, Placa = "DEF-5678", Modelo = "Fiat", Marca = "Palio", Ano = "2020" },
+            new Veiculo { Id = 3, Placa = "GHI-9012", Modelo = "Fiat", Marca = "Mobi", Ano = "2022" },
+        };
     }
 
     private void Cancelar_Click(object sender, RoutedEventArgs e) 
@@ -92,6 +97,30 @@ public partial class VagaVeiculoEntradaDialog : Window
             anoTextBox.BorderThickness = new Thickness(2);
             anoInvalidoTextBlock.Visibility = Visibility.Visible;
         }
+
+    }
+
+    private void PlacaVeiculoComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+    {
+        if(placaVeiculoComboBox.SelectedItem is Veiculo veiculo)
+        {
+            dadosPlacaTextblock.Text = veiculo.Placa;
+            dadosPlacaTextblock.Visibility = Visibility.Visible;
+            dadosMarcaTextBlock.Text = veiculo.Marca;
+            dadosMarcaTextBlock.Visibility = Visibility.Visible;
+            dadosModeloTextBlock.Text = veiculo.Modelo;
+            dadosModeloTextBlock.Visibility = Visibility.Visible;
+        }
+    }
+
+    private void CadastrarVeiculo_ButtonClick(object sender, RoutedEventArgs e)
+    {
+        entradaGrid.Visibility = Visibility.Collapsed;
+        cadastroGrid.Visibility = Visibility.Visible;
+    }
+
+    private void CadastrarVeiculo_MouseButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
 
     }
 }

@@ -41,7 +41,7 @@
             </StackPanel>
 
             <StackPanel Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Image x:Name="logoImage" Source="/Recursos/tornese.png" Width="150" Height="150"/>
+                <Image x:Name="logoImage" Source="/UI/Recursos/tornese.png" Width="150" Height="150"/>
                 <TextBlock TextAlignment="Center" Text="Estacionamento" Margin="0,5,0,0" FontSize="16" FontWeight="Bold" Foreground="White"/>
             </StackPanel>
 

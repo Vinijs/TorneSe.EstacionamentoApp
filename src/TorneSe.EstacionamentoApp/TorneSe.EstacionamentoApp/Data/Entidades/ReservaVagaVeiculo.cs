@@ -2,7 +2,7 @@
 
 namespace TorneSe.EstacionamentoApp.Data.Entidades;
 
-public class ReservaVagaCliente
+public class ReservaVagaVeiculo
 {
     public int Id { get; set; }
     public int IdVaga { get; set; }
@@ -12,5 +12,5 @@ public class ReservaVagaCliente
     public double? HorasUtilizadas { get; set; }
     public decimal? ValorCobrado { get; set; }
     public Vaga Vaga { get; set; }
-    public Cliente Cliente { get; set; }
+    public Veiculo Veiculo { get; set; }
 }

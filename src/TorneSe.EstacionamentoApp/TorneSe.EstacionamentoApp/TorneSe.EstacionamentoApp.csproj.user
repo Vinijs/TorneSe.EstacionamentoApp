@@ -7,81 +7,81 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Componentes\LoadingControl.xaml.cs">
+    <Compile Update="UI\Componentes\LoadingControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Componentes\LoadingSquareControl.xaml.cs">
+    <Compile Update="UI\Componentes\LoadingSquareControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Componentes\VagasGridControl.xaml.cs">
+    <Compile Update="UI\Componentes\VagasGridControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Componentes\VagaVeiculoCardControl.xaml.cs">
+    <Compile Update="UI\Componentes\VagaVeiculoCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Dialogs\VagaVeiculoEntradaDialog.xaml.cs">
+    <Compile Update="UI\Dialogs\VagaVeiculoEntradaDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Dialogs\VagaVeiculoSaidaDialog.xaml.cs">
+    <Compile Update="UI\Dialogs\VagaVeiculoSaidaDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\ConfiguracoesView.xaml.cs">
+    <Compile Update="UI\Views\ConfiguracoesView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\EntradaVeiculosView.xaml.cs">
+    <Compile Update="UI\Views\EntradaVeiculosView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\HomeView.xaml.cs">
+    <Compile Update="UI\Views\HomeView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\RelatoriosView.xaml.cs">
+    <Compile Update="UI\Views\RelatoriosView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\SaidaVeiculosView.xaml.cs">
+    <Compile Update="UI\Views\SaidaVeiculosView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\UsuariosView.xaml.cs">
+    <Compile Update="UI\Views\UsuariosView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Componentes\LoadingControl.xaml">
+    <Page Update="UI\Componentes\LoadingControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Componentes\LoadingSquareControl.xaml">
+    <Page Update="UI\Componentes\LoadingSquareControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Componentes\VagasGridControl.xaml">
+    <Page Update="UI\Componentes\VagasGridControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Componentes\VagaVeiculoCardControl.xaml">
+    <Page Update="UI\Componentes\VagaVeiculoCardControl.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Dialogs\VagaVeiculoEntradaDialog.xaml">
+    <Page Update="UI\Dialogs\VagaVeiculoEntradaDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Dialogs\VagaVeiculoSaidaDialog.xaml">
+    <Page Update="UI\Dialogs\VagaVeiculoSaidaDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="MainWindow.xaml">
+    <Page Update="UI\Views\MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\ConfiguracoesView.xaml">
+    <Page Update="UI\Views\ConfiguracoesView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\EntradaVeiculosView.xaml">
+    <Page Update="UI\Views\EntradaVeiculosView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\HomeView.xaml">
+    <Page Update="UI\Views\HomeView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\RelatoriosView.xaml">
+    <Page Update="UI\Views\RelatoriosView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\SaidaVeiculosView.xaml">
+    <Page Update="UI\Views\SaidaVeiculosView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\UsuariosView.xaml">
+    <Page Update="UI\Views\UsuariosView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
