@@ -1,7 +1,8 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Media;
 using TorneSe.EstacionamentoApp.Data.Entidades;
+using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Dialogs;
 
@@ -13,8 +14,9 @@ public partial class VagaVeiculoEntradaDialog : Window
     private readonly Thickness _bordaPadrao;
     private readonly Brush _corPadrao;
     private readonly Visibility _visibilidadepadrao;
+    private readonly IVeiculoBusiness _veiculoBusiness;
 
-    public VagaVeiculoEntradaDialog()
+    public VagaVeiculoEntradaDialog(IVeiculoBusiness veiculoBusiness)
     {
         InitializeComponent();
         Owner = Application.Current.MainWindow;
@@ -22,11 +24,8 @@ public partial class VagaVeiculoEntradaDialog : Window
         _bordaPadrao = placaTextBox.BorderThickness;
         _corPadrao = corTextBox.BorderBrush;
         _visibilidadepadrao = placaInvalidaTextBlock.Visibility;
-        placaVeiculoComboBox.ItemsSource = new Veiculo[] {
-            new Veiculo { Id = 1, Placa = "ABC-1234", Modelo = "Fiat", Marca = "Uno", Ano = "2020" },
-            new Veiculo { Id = 2, Placa = "DEF-5678", Modelo = "Fiat", Marca = "Palio", Ano = "2020" },
-            new Veiculo { Id = 3, Placa = "GHI-9012", Modelo = "Fiat", Marca = "Mobi", Ano = "2022" },
-        };
+        _veiculoBusiness = veiculoBusiness;
+        //placaVeiculoComboBox.ItemsSource = _veiculoBusiness.ObterPorPlaca("").Result;
     }
 
     private void Cancelar_Click(object sender, RoutedEventArgs e) 
@@ -35,7 +34,12 @@ public partial class VagaVeiculoEntradaDialog : Window
     private void Confirmar_Click(object sender, RoutedEventArgs e)
     {
         LimparFormatacaoErros();
-        ValidarCamposFormulario();
+        var camposValidos = ValidarCamposFormulario();
+
+        if (camposValidos)
+        {
+
+        }
     }
 
     private void LimparFormatacaoErros()
@@ -61,13 +65,15 @@ public partial class VagaVeiculoEntradaDialog : Window
         anoInvalidoTextBlock.Visibility = _visibilidadepadrao;
     }
 
-    private void ValidarCamposFormulario()
+    private bool ValidarCamposFormulario()
     {
+        bool camposValidos = true;
         if(string.IsNullOrWhiteSpace(placaTextBox.Text))
         {
             placaTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
             placaTextBox.BorderThickness = new Thickness(2);
             placaInvalidaTextBlock.Visibility = Visibility.Visible;
+            camposValidos = false;
         }
 
         if (string.IsNullOrWhiteSpace(modeloTextBox.Text))
@@ -75,6 +81,7 @@ public partial class VagaVeiculoEntradaDialog : Window
             modeloTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
             modeloTextBox.BorderThickness = new Thickness(2);
             modeloInvalidoTextBlock.Visibility = Visibility.Visible;
+            camposValidos = false;
         }
 
         if (string.IsNullOrWhiteSpace(corTextBox.Text))
@@ -82,6 +89,7 @@ public partial class VagaVeiculoEntradaDialog : Window
             corTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
             corTextBox.BorderThickness = new Thickness(2);
             corInvalidaTextBlock.Visibility = Visibility.Visible;
+            camposValidos = false;
         }
 
         if (string.IsNullOrWhiteSpace(marcaTextBox.Text))
@@ -89,6 +97,7 @@ public partial class VagaVeiculoEntradaDialog : Window
             marcaTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
             marcaTextBox.BorderThickness = new Thickness(2);
             marcaInvalidaTextBlock.Visibility = Visibility.Visible;
+            camposValidos = false;
         }
 
         if (string.IsNullOrWhiteSpace(anoTextBox.Text))
@@ -96,12 +105,17 @@ public partial class VagaVeiculoEntradaDialog : Window
             anoTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
             anoTextBox.BorderThickness = new Thickness(2);
             anoInvalidoTextBlock.Visibility = Visibility.Visible;
+            camposValidos = false;
         }
+
+        return camposValidos;
 
     }
 
     private void PlacaVeiculoComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
     {
+        
+
         if(placaVeiculoComboBox.SelectedItem is Veiculo veiculo)
         {
             dadosPlacaTextblock.Text = veiculo.Placa;
@@ -120,6 +134,24 @@ public partial class VagaVeiculoEntradaDialog : Window
     }
 
     private void CadastrarVeiculo_MouseButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+    {
+        entradaGrid.Visibility = Visibility.Collapsed;
+        cadastroGrid.Visibility = Visibility.Visible;
+    }
+
+    private async void PlacaVeiculoBusca_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+    {
+        if (placaVeiculoBuscaTextBox.Text.Length >= 3)
+        {
+            var veiculos = await _veiculoBusiness.ObterPorPlaca(placaVeiculoBuscaTextBox.Text);
+            placaVeiculoComboBox.ItemsSource = new List<Veiculo>();
+            placaVeiculoComboBox.ItemsSource = veiculos;
+            if(veiculos.Count > 0)
+                placaVeiculoComboBox.SelectedValue = veiculos[0];
+        }
+    }
+
+    private void ContinuarEntradaVeiculo_ButtonClick(object sender, RoutedEventArgs e)
     {
 
     }

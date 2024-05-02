@@ -31,15 +31,16 @@ public partial class EntradaVeiculosView : UserControl
         InitializeComponent();
         _veiculosStore = veiculosStore;
         _totalPaginas = (int)Math.Ceiling(_veiculosStore.VagasLivres.Count / (double)_porPagina);
-        MontarComponente();
         _veiculoBusiness = veiculoBusiness;
+        MontarComponente();
+        
     }
 
     private void MontarComponente()
     {
         var vagas = _veiculosStore.VagasLivres.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness);
 
         buscaVagaTextBox.IsEnabled = true;
         voltarButton.Visibility = Visibility.Visible;
@@ -96,6 +97,6 @@ public partial class EntradaVeiculosView : UserControl
             return;
         }
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness);
     }
 }

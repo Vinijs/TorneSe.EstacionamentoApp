@@ -32,7 +32,7 @@ public partial class SaidaVeiculosView : UserControl
     {
         var vagas = _veiculosStore.VagasOcupadas.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, null);
         vagasControl.Visibility = Visibility.Visible;
         loadingControl.Visibility = Visibility.Collapsed;
         buscaVagaTextBox.IsEnabled = true;
@@ -90,6 +90,6 @@ public partial class SaidaVeiculosView : UserControl
             return;
         }
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, null!);
     }
 }

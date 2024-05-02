@@ -3,6 +3,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using TorneSe.EstacionamentoApp.Data.Dtos;
 using TorneSe.EstacionamentoApp.Dialogs;
+using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Controls;
 
@@ -11,12 +12,14 @@ namespace TorneSe.EstacionamentoApp.Controls;
 /// </summary>
 public partial class VagaVeiculoCardControl : UserControl
 {
+    private readonly IVeiculoBusiness _veiculoBusiness;
     private string CorBordaCard { get; set; }
     public string DonoComponente { get; set; }
     private VagaVeiculoEntradaDialog _dialogEntrada;
     private VagaVeiculoSaidaDialog _dialogSaida;
 
-    public VagaVeiculoCardControl(ResumoVaga resumoVaga)
+    public VagaVeiculoCardControl(ResumoVaga resumoVaga, 
+                                  IVeiculoBusiness veiculoBusiness)
     {
         InitializeComponent();
         CorBordaCard = "Green";
@@ -24,18 +27,19 @@ public partial class VagaVeiculoCardControl : UserControl
         vagaNomeTextBlock.Text = resumoVaga.NomeVaga;
         placaTextblock.Text = resumoVaga.Placa;
         proprietarioTextblock.Text = resumoVaga.ModeloMarca;
-        _dialogEntrada = new VagaVeiculoEntradaDialog();
-        _dialogSaida = new VagaVeiculoSaidaDialog();
+        _veiculoBusiness = veiculoBusiness;
     }
 
     private void MouseClick_Event(object sender, MouseButtonEventArgs e)
     {
-        if(DonoComponente is "Saida")
+        if (DonoComponente is "Saida")
         {
+            _dialogSaida = new VagaVeiculoSaidaDialog();
             _dialogSaida.ShowDialog();
         }
         else
         {
+            _dialogEntrada = new VagaVeiculoEntradaDialog(_veiculoBusiness);
             _dialogEntrada.ShowDialog();
         }
     }

@@ -4,6 +4,7 @@ using System.Windows;
 using Forms = System.Windows.Forms;
 using TorneSe.EstacionamentoApp.Extensions;
 using System;
+using TorneSe.EstacionamentoApp.UI.Extensions;
 
 namespace TorneSe.EstacionamentoApp;
 
@@ -18,6 +19,7 @@ public partial class App : Application
     {
         _host = Host
             .CreateDefaultBuilder()
+            .AddDatabase()
             .AddStores()
             .AddNotifications()
             .AddBusiness()

@@ -77,10 +77,12 @@
             </StackPanel>
             <Label Style="{StaticResource LabelForm}" Content="Placa Veiculo:" Grid.Row="1" Grid.Column="0"/>
             <StackPanel  Grid.Row="1" Grid.Column="1">
+                <TextBox x:Name="placaVeiculoBuscaTextBox"
+                         TextChanged="PlacaVeiculoBusca_TextChanged"
+                         Style="{StaticResource TextBoxForm}"
+                         Margin="0 0 10 5"/>
                 <ComboBox 
                 x:Name="placaVeiculoComboBox" 
-                IsEditable="True" 
-                TextSearch.TextPath="Placa" 
                 Height="25" 
                 Margin="0 0 10 0" 
                 SelectionChanged="PlacaVeiculoComboBox_SelectionChanged">
@@ -147,23 +149,18 @@
                 Margin="10"
                 >
                 <Button 
-                    BorderBrush="Transparent" 
+                    BorderBrush="Transparent"
                     BorderThickness="0" 
                     Background="Transparent"
                     Margin="5"
                     Cursor="Hand"
                     Click="CadastrarVeiculo_ButtonClick"
+                    Foreground="DodgerBlue"
+                    FontWeight="Bold"
                     >
-                    <TextBox 
-                        Text="Cadastrar Novo Veículo" 
-                        Foreground="DodgerBlue" 
-                        FontSize="16" 
-                        FontWeight="Bold" 
-                        Background="Transparent"
-                        TextDecorations="Underline"
-                        Cursor="Hand"
-                        MouseLeftButtonDown="CadastrarVeiculo_MouseButtonDown"
-                        />
+                    <Button.Content>
+                        <TextBlock Text="Cadastrar Novo Veículo" TextDecorations="Underline" FontSize="16" Cursor="Hand" />
+                    </Button.Content>
                 </Button>
 
                 <Button 
@@ -172,16 +169,13 @@
                     Background="Transparent"
                     Margin="5"
                     Cursor="Hand"
+                    Click="ContinuarEntradaVeiculo_ButtonClick"
+                    Foreground="DodgerBlue" 
+                    FontWeight="Bold"
                     >
-                    <TextBox 
-                        Text="Continuar Entrada Veiculo" 
-                        Foreground="DodgerBlue" 
-                        FontSize="16" 
-                        FontWeight="Bold" 
-                        Background="Transparent"
-                        TextDecorations="Underline"
-                        Cursor="Hand"
-                        />
+                    <Button.Content>
+                        <TextBlock Text="Continuar Entrada Veiculo" TextDecorations="Underline" FontSize="16" Cursor="Hand" />
+                    </Button.Content>
                 </Button>
             </StackPanel>
 
