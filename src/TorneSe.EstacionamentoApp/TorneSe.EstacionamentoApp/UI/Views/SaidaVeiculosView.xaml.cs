@@ -13,7 +13,7 @@ namespace TorneSe.EstacionamentoApp.Views;
 /// </summary>
 public partial class SaidaVeiculosView : UserControl
 {
-    private readonly VeiculosStore _veiculosStore;
+    private readonly VagasStore _veiculosStore;
     private int _pagina = 1;
     private const int _paginaInicial = 1;
     private int _porPagina = 20;
@@ -21,7 +21,7 @@ public partial class SaidaVeiculosView : UserControl
 
     private const string _componente = "Saida";
 
-    public SaidaVeiculosView(VeiculosStore veiculosStore)
+    public SaidaVeiculosView(VagasStore veiculosStore)
     {
         InitializeComponent();
         _veiculosStore = veiculosStore;
@@ -32,7 +32,7 @@ public partial class SaidaVeiculosView : UserControl
     {
         var vagas = _veiculosStore.VagasOcupadas.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente, null);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, null, _veiculosStore);
         vagasControl.Visibility = Visibility.Visible;
         loadingControl.Visibility = Visibility.Collapsed;
         buscaVagaTextBox.IsEnabled = true;
@@ -90,6 +90,6 @@ public partial class SaidaVeiculosView : UserControl
             return;
         }
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente, null!);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, null!, _veiculosStore);
     }
 }

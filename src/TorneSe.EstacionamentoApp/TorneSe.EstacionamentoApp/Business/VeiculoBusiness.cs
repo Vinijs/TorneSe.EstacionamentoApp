@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
 using TorneSe.EstacionamentoApp.Data.Entidades;
@@ -9,8 +10,31 @@ namespace TorneSe.EstacionamentoApp.Business;
 public class VeiculoBusiness : IVeiculoBusiness
 {
     private readonly IVeiculoDAO _veiculoDAO;
-    public VeiculoBusiness(IVeiculoDAO veiculoDAO) 
-        => _veiculoDAO = veiculoDAO;
+    private readonly IReservaVagaVeiculoDAO _reservaVagaVeiculoDAO;
+    private readonly IVagaDAO _vagaDAO;
+    public VeiculoBusiness(IVeiculoDAO veiculoDAO, 
+                           IReservaVagaVeiculoDAO reservaVagaVeiculoDAO,
+                           IVagaDAO vagaDAO)
+    {
+        _veiculoDAO = veiculoDAO;
+        _reservaVagaVeiculoDAO = reservaVagaVeiculoDAO;
+        _vagaDAO = vagaDAO;
+    }
+
     public async Task<List<Veiculo>> ObterPorPlaca(string placa) 
         => await _veiculoDAO.BuscarVeiculosPorPlaca(placa);
+
+    public async Task RealizarEntradaVeiculo(Veiculo veiculo, int idVaga)
+    {
+        if(veiculo.Id is default(int))
+            veiculo.Id = await _veiculoDAO.Inserir(veiculo);
+            
+        _vagaDAO.MarcarComoOcupada(idVaga);
+        _reservaVagaVeiculoDAO.Inserir(new ReservaVagaVeiculo
+        {
+            IdVeiculo = veiculo.Id,
+            IdVaga = idVaga,
+            HoraEntrada = DateTime.Now
+        });
+    }
 }

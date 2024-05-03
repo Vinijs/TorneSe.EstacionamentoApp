@@ -10,7 +10,7 @@ public static class AddStoresHostBuilderExtensions
     {
         hostBuilder.ConfigureServices(services =>
         {
-            services.AddSingleton<VeiculosStore>();
+            services.AddSingleton<VagasStore>();
         });
         return hostBuilder;
     }

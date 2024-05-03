@@ -2,4 +2,5 @@
 
 public interface IVagaDAO
 {
+    void MarcarComoOcupada(int idVaga);
 }

@@ -11,4 +11,7 @@ public class ReservaVagaVeiculoDAO : IReservaVagaVeiculoDAO
 
     public ReservaVagaVeiculoDAO(EstacionamentoContexto contexto) 
         => _reservaVagaVeiculos = contexto.ReservaVagaVeiculos;
+
+    public void Inserir(ReservaVagaVeiculo reservaVagaVeiculo) 
+        => _reservaVagaVeiculos.Add(reservaVagaVeiculo);
 }

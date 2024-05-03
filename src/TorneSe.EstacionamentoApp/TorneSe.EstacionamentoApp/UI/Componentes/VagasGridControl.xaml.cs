@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Controls;
 using TorneSe.EstacionamentoApp.Data.Dtos;
+using TorneSe.EstacionamentoApp.Store;
 using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Componentes;
@@ -14,14 +15,17 @@ public partial class VagasGridControl : UserControl
     private readonly List<ResumoVaga> _vagas;
     private readonly string _donoComponente;
     private readonly IVeiculoBusiness _veiculoBusiness;
+    private readonly VagasStore _store;
 
     public VagasGridControl(List<ResumoVaga> vagas, string donoComponente, 
-                            IVeiculoBusiness veiculoBusiness)
+                            IVeiculoBusiness veiculoBusiness,
+                            VagasStore store)
     {
         InitializeComponent();
         _vagas = vagas;
         _donoComponente = donoComponente;
         _veiculoBusiness = veiculoBusiness;
+        _store = store;
         MontarComponente();
     }
 
@@ -31,7 +35,7 @@ public partial class VagasGridControl : UserControl
 
         for (int i = 0; i < _vagas.Count; i++)
         {
-            VagaVeiculoCardControl cardVaga = new(_vagas[i], _veiculoBusiness)
+            VagaVeiculoCardControl cardVaga = new(_vagas[i], _veiculoBusiness, _store)
             {
                 DonoComponente = _donoComponente
             };

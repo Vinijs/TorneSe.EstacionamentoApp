@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TorneSe.EstacionamentoApp.Data.Contexto;
@@ -17,4 +18,10 @@ public class VeiculoDAO: IVeiculoDAO
 
     public Task<List<Veiculo>> BuscarVeiculosPorPlaca(string placa) 
         => Task.FromResult(_veiculos.Where(v => v.Placa.Contains(placa)).Take(10).ToList());
+
+    public async Task<int> Inserir(Veiculo veiculo)
+    {
+        _veiculos.Add(veiculo);
+        return  Random.Shared.Next(0, _veiculos.Count);
+    }
 }

@@ -10,6 +10,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -46,6 +47,13 @@
                 <Setter Property="HorizontalAlignment" Value="Left"/>
                 <Setter Property="Margin" Value="5 0 0 0"/>
                 <Setter Property="Visibility" Value="Collapsed"/>
+            </Style>
+            <Style x:Key="TextBlockInfo" TargetType="TextBlock">
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="VerticalAlignment" Value="Center" />
+                <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Margin" Value="5" />
             </Style>
         </Grid.Resources>
         <Grid Grid.Row="0" x:Name="entradaGrid">
@@ -178,7 +186,6 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
-
         </Grid>
         <Grid Grid.Row="1" Visibility="Collapsed" x:Name="cadastroGrid">
             <Grid.ColumnDefinitions>
@@ -266,8 +273,153 @@
                     Grid.ColumnSpan="2" 
                     HorizontalAlignment="Center"
                     Margin="30">
-                <Button Style="{StaticResource ButtonForm}" Margin="0 0 10 0" Background="Green" Content="Confirmar" Click="Confirmar_Click"/>
-                <Button Style="{StaticResource ButtonForm}" Background="Red" Content="Cancelar" Click="Cancelar_Click"/>
+                <StackPanel 
+                Grid.Row="4" 
+                Grid.ColumnSpan="2" 
+                Orientation="Horizontal"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="10"
+                >
+                    <Button 
+                    BorderBrush="Transparent"
+                    BorderThickness="0" 
+                    Background="Transparent"
+                    Margin="5"
+                    Cursor="Hand"
+                    Click="Confirmar_Click"
+                    Foreground="DodgerBlue"
+                    FontWeight="Bold"
+                    >
+                        <Button.Content>
+                            <TextBlock Text="Continuar Novo Veículo" TextDecorations="Underline" FontSize="16" Cursor="Hand" />
+                        </Button.Content>
+                    </Button>
+
+                    <Button 
+                    BorderBrush="Transparent" 
+                    BorderThickness="0" 
+                    Background="Transparent"
+                    Margin="5"
+                    Cursor="Hand"
+                    Click="Cancelar_Click"
+                    Foreground="DodgerBlue" 
+                    FontWeight="Bold"
+                    >
+                        <Button.Content>
+                            <TextBlock Text="Cancelar Entrada Veiculo" TextDecorations="Underline" FontSize="16" Cursor="Hand" />
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" 
+              Visibility="Collapsed"
+              VerticalAlignment="Center" 
+              HorizontalAlignment="Center"
+              x:Name="confirmarGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0" 
+                     Grid.ColumnSpan="2"
+                     Orientation="Horizontal"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     Margin="10">
+                <Image Source="../Recursos/registrar_carro.png" Width="40" Height="40" Margin="10"/>
+                <TextBlock 
+                Text="Confirmar Dados Veículo" 
+                Foreground="White"
+                FontWeight="Bold"
+                FontSize="24"
+                VerticalAlignment="Center"
+                Margin="10"
+            />
+            </StackPanel>
+
+            <Label Style="{StaticResource LabelForm}" Content="Placa:" Grid.Row="1" Grid.Column="0"/>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <TextBlock 
+                Text="ADH-1234"
+                Style="{StaticResource TextBlockInfo}"
+                x:Name="placaInfoTextBlock"/>
+            </StackPanel>
+
+            <Label Style="{StaticResource LabelForm}" Content="Marca:" Grid.Row="2" Grid.Column="0"/>
+            <StackPanel  Grid.Row="2" Grid.Column="1">
+                <TextBlock 
+                Text="Chevrolet"
+                Style="{StaticResource TextBlockInfo}"
+                x:Name="marcaInfoTextBlock"/>
+            </StackPanel>
+
+            <Label Style="{StaticResource LabelForm}" Content="Modelo:" Grid.Row="3" Grid.Column="0"/>
+            <StackPanel Grid.Row="3" Grid.Column="1">
+                <TextBlock 
+                Text="Corsa"
+                Style="{StaticResource TextBlockInfo}"
+                x:Name="modeloInfoTextBlock"/>
+            </StackPanel>
+
+            <Label Style="{StaticResource LabelForm}" Content="Ano:" Grid.Row="4" Grid.Column="0"/>
+            <StackPanel Grid.Row="4" Grid.Column="1">
+                <TextBlock 
+                Text="2016"
+                Style="{StaticResource TextBlockInfo}"
+                x:Name="anoInfoTextBlock"/>
+            </StackPanel>
+
+            <Label Style="{StaticResource LabelForm}" Content="Cor:" Grid.Row="5" Grid.Column="0"/>
+            <StackPanel  Grid.Row="5" Grid.Column="1">
+                <TextBlock 
+                Text="Prata"
+                Style="{StaticResource TextBlockInfo}"
+                x:Name="corInfoTextBlock"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" 
+                    Grid.Row="6" 
+                    Grid.ColumnSpan="2" 
+                    HorizontalAlignment="Center"
+                    Margin="30">
+                <Button 
+                    BorderBrush="Transparent" 
+                    BorderThickness="0" 
+                    Background="Transparent"
+                    Margin="5"
+                    Cursor="Hand"
+                    Click="ConfirmarDados_Click"
+                    Foreground="DodgerBlue"
+                    FontWeight="Bold"
+                    >
+                    <Button.Content>
+                        <TextBlock Text="Confirmar" TextDecorations="Underline" FontSize="16" Cursor="Hand"/>
+                    </Button.Content>
+                </Button>
+                <Button 
+                    BorderBrush="Transparent" 
+                    BorderThickness="0" 
+                    Background="Transparent"
+                    Margin="5"
+                    Cursor="Hand"
+                    Click="CancelarDados_Click"
+                    Foreground="DodgerBlue"
+                    FontWeight="Bold"
+                    >
+                    <Button.Content>
+                        <TextBlock Text="Cancelar" TextDecorations="Underline" FontSize="16" Cursor="Hand"/>
+                    </Button.Content>
+                </Button>
             </StackPanel>
         </Grid>
     </Grid>

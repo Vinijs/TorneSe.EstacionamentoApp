@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using TorneSe.EstacionamentoApp.Data.Entidades;
+using TorneSe.EstacionamentoApp.Store;
 using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Dialogs;
@@ -15,8 +17,12 @@ public partial class VagaVeiculoEntradaDialog : Window
     private readonly Brush _corPadrao;
     private readonly Visibility _visibilidadepadrao;
     private readonly IVeiculoBusiness _veiculoBusiness;
+    private readonly VagasStore _store;
+    private readonly int _idVaga;
 
-    public VagaVeiculoEntradaDialog(IVeiculoBusiness veiculoBusiness)
+    private Veiculo? _veiculo;
+
+    public VagaVeiculoEntradaDialog(IVeiculoBusiness veiculoBusiness, int idVaga, VagasStore store)
     {
         InitializeComponent();
         Owner = Application.Current.MainWindow;
@@ -25,6 +31,8 @@ public partial class VagaVeiculoEntradaDialog : Window
         _corPadrao = corTextBox.BorderBrush;
         _visibilidadepadrao = placaInvalidaTextBlock.Visibility;
         _veiculoBusiness = veiculoBusiness;
+        _idVaga = idVaga;
+        _store = store;
         //placaVeiculoComboBox.ItemsSource = _veiculoBusiness.ObterPorPlaca("").Result;
     }
 
@@ -38,7 +46,17 @@ public partial class VagaVeiculoEntradaDialog : Window
 
         if (camposValidos)
         {
-
+            _veiculo = new Veiculo
+            {
+                Placa = placaTextBox.Text,
+                Modelo = modeloTextBox.Text,
+                Cor = corTextBox.Text,
+                Marca = marcaTextBox.Text,
+                Ano = anoTextBox.Text
+            };
+            cadastroGrid.Visibility = Visibility.Collapsed;
+            confirmarGrid.Visibility = Visibility.Visible;
+            PreencherDadosVeiculo();
         }
     }
 
@@ -133,26 +151,62 @@ public partial class VagaVeiculoEntradaDialog : Window
         cadastroGrid.Visibility = Visibility.Visible;
     }
 
-    private void CadastrarVeiculo_MouseButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-    {
-        entradaGrid.Visibility = Visibility.Collapsed;
-        cadastroGrid.Visibility = Visibility.Visible;
-    }
-
     private async void PlacaVeiculoBusca_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
     {
         if (placaVeiculoBuscaTextBox.Text.Length >= 3)
         {
             var veiculos = await _veiculoBusiness.ObterPorPlaca(placaVeiculoBuscaTextBox.Text);
-            placaVeiculoComboBox.ItemsSource = new List<Veiculo>();
-            placaVeiculoComboBox.ItemsSource = veiculos;
+            
             if(veiculos.Count > 0)
-                placaVeiculoComboBox.SelectedValue = veiculos[0];
+            {
+                placaVeiculoComboBox.ItemsSource = new List<Veiculo>(veiculos);
+                placaVeiculoComboBox.SelectedValue = veiculos
+                    .Where(v => v.Placa.Contains(placaVeiculoBuscaTextBox.Text)).FirstOrDefault()
+                    ?? veiculos[0];
+                _veiculo = (Veiculo)placaVeiculoComboBox.SelectedValue;
+            }
+            else
+            {
+                placaVeiculoComboBox.ItemsSource = new List<Veiculo>();
+                placaVeiculoComboBox.SelectedValue = null;
+                _veiculo = null!;
+            }
+                
         }
     }
 
     private void ContinuarEntradaVeiculo_ButtonClick(object sender, RoutedEventArgs e)
     {
-
+        if(_veiculo is not null)
+        {
+            entradaGrid.Visibility = Visibility.Collapsed;
+            confirmarGrid.Visibility = Visibility.Visible;
+            PreencherDadosVeiculo();
+            
+        }
     }
+
+    private void PreencherDadosVeiculo()
+    {
+        placaInfoTextBlock.Text = _veiculo?.Placa;
+        placaInfoTextBlock.Text = _veiculo?.Modelo;
+        marcaInfoTextBlock.Text = _veiculo?.Marca;
+        corInfoTextBlock.Text = _veiculo?.Cor;
+        anoInfoTextBlock.Text = _veiculo?.Ano;
+    }
+
+    //private void TrocarVisualizacaoEPreencherDadosVeiculos()
+    //{
+
+    //}
+
+    private void ConfirmarDados_Click(object sender, RoutedEventArgs e)
+    {
+        _veiculoBusiness.RealizarEntradaVeiculo(_veiculo!, _idVaga);
+        _store.OcuparVaga(_idVaga);
+        Close();
+    }
+
+    private void CancelarDados_Click(object sender, RoutedEventArgs e) 
+        => Cancelar_Click(sender, e);
 }
