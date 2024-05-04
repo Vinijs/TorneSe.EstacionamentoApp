@@ -1,8 +1,9 @@
-﻿using TorneSe.EstacionamentoApp.Data.Entidades;
+﻿using System.Threading.Tasks;
+using TorneSe.EstacionamentoApp.Data.Entidades;
 
 namespace TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
 
 public interface IReservaVagaVeiculoDAO
 {
-    void Inserir(ReservaVagaVeiculo reservaVagaVeiculo);
+    Task Inserir(ReservaVagaVeiculo reservaVagaVeiculo);
 }

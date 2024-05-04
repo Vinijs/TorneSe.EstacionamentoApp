@@ -56,7 +56,7 @@
                 <Setter Property="Margin" Value="5" />
             </Style>
         </Grid.Resources>
-        <Grid Grid.Row="0" x:Name="entradaGrid">
+        <Grid Grid.Row="0" Visibility="Visible" x:Name="entradaGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition Width="*"/>
@@ -330,13 +330,15 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <StackPanel  Grid.Row="0" 
                      Grid.ColumnSpan="2"
                      Orientation="Horizontal"
                      VerticalAlignment="Center"
                      HorizontalAlignment="Center"
-                     Margin="10">
+                     Margin="5">
                 <Image Source="../Recursos/registrar_carro.png" Width="40" Height="40" Margin="10"/>
                 <TextBlock 
                 Text="Confirmar Dados Veículo" 
@@ -344,7 +346,7 @@
                 FontWeight="Bold"
                 FontSize="24"
                 VerticalAlignment="Center"
-                Margin="10"
+                Margin="5"
             />
             </StackPanel>
 
@@ -387,11 +389,30 @@
                 Style="{StaticResource TextBlockInfo}"
                 x:Name="corInfoTextBlock"/>
             </StackPanel>
+
+            <Label Style="{StaticResource LabelForm}" Content="Condutor:" Grid.Row="6" Grid.Column="0"/>
+            <StackPanel Grid.Row="6" Grid.Column="1" VerticalAlignment="Center">
+                <TextBox Style="{StaticResource TextBoxForm}" x:Name="nomeCondutorTextBox"/>
+                <TextBlock 
+                Text="O nome do condutor deve ser informado"
+                Style="{StaticResource TextBlockForm}"
+                x:Name="nomeCondutorInvalidoTextBlock"/>
+            </StackPanel>
+
+            <Label Style="{StaticResource LabelForm}" Content="Documento:" Grid.Row="7" Grid.Column="0"/>
+            <StackPanel Grid.Row="7" Grid.Column="1" VerticalAlignment="Center">
+                <TextBox Style="{StaticResource TextBoxForm}" x:Name="documentoTextBox"/>
+                <TextBlock 
+                Text="O documento do condutor deve ser informado"
+                Style="{StaticResource TextBlockForm}"
+                x:Name="documentoInvalidoTextBlock"/>
+            </StackPanel>
+
             <StackPanel Orientation="Horizontal" 
-                    Grid.Row="6" 
+                    Grid.Row="8" 
                     Grid.ColumnSpan="2" 
                     HorizontalAlignment="Center"
-                    Margin="30">
+                    Margin="10">
                 <Button 
                     BorderBrush="Transparent" 
                     BorderThickness="0" 

@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using TorneSe.EstacionamentoApp.Data.Dtos;
+using TorneSe.EstacionamentoApp.UI.Args;
 
 namespace TorneSe.EstacionamentoApp.Store;
 
@@ -9,6 +11,7 @@ public class VagasStore
     private readonly List<ResumoVaga> _vagasOcupadas;
     private readonly List<ResumoVaga> _vagasLivres;
 
+    public EventHandler<VagasStoreEventArgs>? StoreChanged;
     public VagasStore()
     {
         _vagasOcupadas = new();
@@ -56,6 +59,7 @@ public class VagasStore
         {
             _vagasLivres.Remove(vaga);
             _vagasOcupadas.Add(vaga);
+            StoreChanged?.Invoke(this, new VagasStoreEventArgs(vaga));
         }
     }
     
@@ -67,6 +71,7 @@ public class VagasStore
         {
             _vagasOcupadas.Remove(vaga);
             _vagasLivres.Add(vaga);
+            StoreChanged?.Invoke(this, new VagasStoreEventArgs(vaga));
         }
     }
 }

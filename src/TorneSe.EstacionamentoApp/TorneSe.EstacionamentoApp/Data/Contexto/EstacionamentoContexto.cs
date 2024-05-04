@@ -1,17 +1,25 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using TorneSe.EstacionamentoApp.Data.Entidades;
 
 namespace TorneSe.EstacionamentoApp.Data.Contexto;
 
-public class EstacionamentoContexto
+public class EstacionamentoContexto : DbContext
 {
-    public List<Veiculo> Veiculos { get; set; } = new List<Veiculo> {
-            new Veiculo { Id = 1, Placa = "ABC-1234", Modelo = "Fiat", Marca = "Uno", Ano = "2020", Cor = "Azul" },
-            new Veiculo { Id = 2, Placa = "DEF-5678", Modelo = "Fiat", Marca = "Palio", Ano = "2020", Cor = "Prata" },
-            new Veiculo { Id = 3, Placa = "GHI-9012", Modelo = "Fiat", Marca = "Mobi", Ano = "2022", Cor = "Vermelho" },
-        };
-    public List<Vaga> Vagas { get; set; } = new List<Vaga>();
-    public List<ReservaVagaVeiculo> ReservaVagaVeiculos { get; set; } = new List<ReservaVagaVeiculo>();
+    public DbSet<Vaga> Vagas { get; set; }
+    public DbSet<Veiculo> Veiculos { get; set; }
+    public DbSet<ReservaVagaVeiculo> ReservaVagaVeiculos { get; set; }
+
+    public EstacionamentoContexto(DbContextOptions<EstacionamentoContexto> options)
+        : base(options)
+    {
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(EstacionamentoContexto).Assembly);
+        base.OnModelCreating(modelBuilder);
+    }
 
 
 }

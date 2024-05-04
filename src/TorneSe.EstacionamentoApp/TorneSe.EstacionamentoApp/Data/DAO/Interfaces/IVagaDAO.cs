@@ -1,6 +1,8 @@
-﻿namespace TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
+﻿using System.Threading.Tasks;
+
+namespace TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
 
 public interface IVagaDAO
 {
-    void MarcarComoOcupada(int idVaga);
+    Task MarcarComoOcupada(int idVaga, int idVeiculo);
 }

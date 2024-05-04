@@ -1,4 +1,4 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -10,18 +10,19 @@ namespace TorneSe.EstacionamentoApp.Data.DAO;
 
 public class VeiculoDAO: IVeiculoDAO
 {
-    private readonly List<Veiculo> _veiculos;
+    private readonly EstacionamentoContexto _contexto;
     public VeiculoDAO(EstacionamentoContexto contexto)
     {
-        _veiculos = contexto.Veiculos;
+        _contexto = contexto;
     }
 
-    public Task<List<Veiculo>> BuscarVeiculosPorPlaca(string placa) 
-        => Task.FromResult(_veiculos.Where(v => v.Placa.Contains(placa)).Take(10).ToList());
+    public async Task<List<Veiculo>> BuscarVeiculosPorPlaca(string placa) 
+        => await _contexto.Veiculos.Where(v => v.Placa.Contains(placa)).Take(10).ToListAsync();
 
     public async Task<int> Inserir(Veiculo veiculo)
     {
-        _veiculos.Add(veiculo);
-        return  Random.Shared.Next(0, _veiculos.Count);
+        await _contexto.Veiculos.AddAsync(veiculo);
+        await _contexto.SaveChangesAsync();
+        return  veiculo.Id;
     }
 }

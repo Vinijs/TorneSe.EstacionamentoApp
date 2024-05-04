@@ -130,6 +130,29 @@ public partial class VagaVeiculoEntradaDialog : Window
 
     }
 
+    private bool ValidarCamposCondutor()
+    {
+        bool camposValidos = true;
+
+        if (string.IsNullOrWhiteSpace(nomeCondutorTextBox.Text))
+        {
+            nomeCondutorTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+            nomeCondutorTextBox.BorderThickness = new Thickness(2);
+            nomeCondutorInvalidoTextBlock.Visibility = Visibility.Visible;
+            camposValidos = false;
+        }
+
+        if (string.IsNullOrWhiteSpace(documentoTextBox.Text))
+        {
+            documentoTextBox.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("Red"));
+            documentoTextBox.BorderThickness = new Thickness(2);
+            documentoInvalidoTextBlock.Visibility = Visibility.Visible;
+            camposValidos = false;
+        }
+
+        return camposValidos;
+    }
+
     private void PlacaVeiculoComboBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
     {
         
@@ -189,22 +212,22 @@ public partial class VagaVeiculoEntradaDialog : Window
     private void PreencherDadosVeiculo()
     {
         placaInfoTextBlock.Text = _veiculo?.Placa;
-        placaInfoTextBlock.Text = _veiculo?.Modelo;
+        modeloInfoTextBlock.Text = _veiculo?.Modelo;
         marcaInfoTextBlock.Text = _veiculo?.Marca;
         corInfoTextBlock.Text = _veiculo?.Cor;
         anoInfoTextBlock.Text = _veiculo?.Ano;
     }
 
-    //private void TrocarVisualizacaoEPreencherDadosVeiculos()
-    //{
-
-    //}
-
-    private void ConfirmarDados_Click(object sender, RoutedEventArgs e)
+    private async void ConfirmarDados_Click(object sender, RoutedEventArgs e)
     {
-        _veiculoBusiness.RealizarEntradaVeiculo(_veiculo!, _idVaga);
-        _store.OcuparVaga(_idVaga);
-        Close();
+        var camposValido = ValidarCamposCondutor();
+
+        if (camposValido)
+        {
+            await _veiculoBusiness.RealizarEntradaVeiculo(_veiculo!, _idVaga, nomeCondutorTextBox.Text, documentoTextBox.Text);
+            _store.OcuparVaga(_idVaga);
+            Close();
+        }
     }
 
     private void CancelarDados_Click(object sender, RoutedEventArgs e) 

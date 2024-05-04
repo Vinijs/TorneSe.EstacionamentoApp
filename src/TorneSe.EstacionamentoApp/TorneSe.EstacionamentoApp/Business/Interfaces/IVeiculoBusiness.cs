@@ -7,6 +7,6 @@ namespace TorneSe.EstacionamentoApp.UI.Interfaces;
 public interface IVeiculoBusiness
 {
     Task<List<Veiculo>> ObterPorPlaca(string placa);
-    Task RealizarEntradaVeiculo(Veiculo veiculo, int idVaga);
+    Task RealizarEntradaVeiculo(Veiculo veiculo, int idVaga, string nomeCondutor, string documentoCondutor);
 
 }

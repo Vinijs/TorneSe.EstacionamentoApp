@@ -1,27 +1,27 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 using TorneSe.EstacionamentoApp.Data.Contexto;
 using TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
-using TorneSe.EstacionamentoApp.Data.Entidades;
 
 namespace TorneSe.EstacionamentoApp.Data.DAO;
 
 public class VagaDAO: IVagaDAO
 {
-    private readonly List<Vaga> _vagas;
+    private readonly EstacionamentoContexto _contexto;
 
     public VagaDAO(EstacionamentoContexto contexto) 
-        => _vagas = contexto.Vagas;
+        => _contexto = contexto;
 
-    public void MarcarComoOcupada(int idVaga)
+    public async Task MarcarComoOcupada(int idVaga, int idVeiculo)
     {
-        var vaga = _vagas.FirstOrDefault(v => v.Id == idVaga);
+        var vaga = await _contexto.Vagas.FirstOrDefaultAsync(v => v.Id == idVaga);
         
         if(vaga is not null)
         {
             vaga.Ocupada = true;
+            vaga.IdVeiculo = idVeiculo;
         }
 
-
+        await _contexto.SaveChangesAsync();
     }
 }
