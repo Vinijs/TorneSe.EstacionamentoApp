@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Threading.Tasks;
 using TorneSe.EstacionamentoApp.Data.Contexto;
 using TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
@@ -15,7 +15,15 @@ public class ReservaVagaVeiculoDAO : IReservaVagaVeiculoDAO
 
     public async Task Inserir(ReservaVagaVeiculo reservaVagaVeiculo)
     {
-        await _contexto.ReservaVagaVeiculos.AddAsync(reservaVagaVeiculo);
-        await _contexto.SaveChangesAsync();
+        try
+        {
+            await _contexto.ReservaVagaVeiculos.AddAsync(reservaVagaVeiculo);
+
+            _ = await _contexto.SaveChangesAsync();
+        }
+        catch (System.Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
     }
 }

@@ -12,33 +12,19 @@ public class VagasStore
     private readonly List<ResumoVaga> _vagasLivres;
 
     public EventHandler<VagasStoreEventArgs>? StoreChanged;
-    public VagasStore()
+    public VagasStore(List<ResumoVaga> vagasLivres, List<ResumoVaga> vagasOcupadas)
     {
-        _vagasOcupadas = new();
-        _vagasLivres = new();
-        CriarVagasLivres();
-        CriarVagasOcupadas();
+
+        _vagasOcupadas = vagasOcupadas;
+        _vagasLivres = vagasLivres;
     }
 
     public IReadOnlyList<ResumoVaga> VagasOcupadas => _vagasOcupadas;
     public IReadOnlyList<ResumoVaga> VagasLivres => _vagasLivres;
 
-    private void CriarVagasLivres()
-    {
-        var vagasPrimeiroAndar = Enumerable.Range(1, 20)
-            .Select(x => new ResumoVaga(x, $"A-{x}"))
-            .ToList();
-
-        var vagasSegundoAndar = Enumerable.Range(1, 15)
-            .Select(x => new ResumoVaga(x, $"B-{x}"))
-            .ToList();
-
-        _vagasLivres.AddRange(vagasPrimeiroAndar);
-        _vagasLivres.AddRange(vagasSegundoAndar);
-    }
-
     public void CriarVagasOcupadas()
     {
+
         var vagasOcupadasPrimeiroAndar = Enumerable.Range(1, 20)
             .Select(x => new ResumoVaga(x, $"A-{x}", "HGT-9878", "Golf/Volkswagen"))
             .ToList();

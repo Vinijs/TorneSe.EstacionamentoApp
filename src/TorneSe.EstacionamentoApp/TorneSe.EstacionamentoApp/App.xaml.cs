@@ -5,6 +5,10 @@ using Forms = System.Windows.Forms;
 using TorneSe.EstacionamentoApp.Extensions;
 using System;
 using TorneSe.EstacionamentoApp.UI.Extensions;
+using TorneSe.EstacionamentoApp.Data.Contexto;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using TorneSe.EstacionamentoApp.Data.Entidades;
 
 namespace TorneSe.EstacionamentoApp;
 
@@ -32,6 +36,8 @@ public partial class App : Application
     {
         _host.Start();
 
+        SeedDatabase();
+
         _notify = _host.Services.GetRequiredService<Forms.NotifyIcon>();
 
         //Menus
@@ -39,15 +45,32 @@ public partial class App : Application
         _notify.ContextMenuStrip.Items.Add("Sair", null, SairAplicacaoMenuStrip_Click);
         _notify.Click += NotifyIcon_Click;
 
-        //Notificações
-        _notify.ShowBalloonTip(1000, "Entrada Veiculo", "Entrada realizada com sucesso do veiculo UHUHA-1918"
-            , Forms.ToolTipIcon.Info);
-        _notify.BalloonTipClicked += (s, e) => Forms.MessageBox.Show("Clicou no balão");
-
         MainWindow = _host.Services.GetRequiredService<MainWindow>();
         MainWindow.Show();
 
         base.OnStartup(e);
+    }
+
+    private void SeedDatabase()
+    {
+        var contexto = _host.Services.GetRequiredService<EstacionamentoContexto>();
+
+        if (contexto.Database.GetPendingMigrations().Any())
+            contexto.Database.Migrate();
+
+        contexto.Database.EnsureCreated();
+
+        var vagasPrimeiroAndar = Enumerable.Range(1, 20)
+            .Select(x => new Vaga() { Andar = 1, Codigo = "A", Numero = x, Ocupada = false })
+            .ToList();
+
+        var vagasSegundoAndar = Enumerable.Range(1, 15)
+            .Select(x => new Vaga() { Andar = 1, Codigo = "B", Numero = x, Ocupada = false })
+            .ToList();
+
+        contexto.Vagas.AddRange(vagasPrimeiroAndar);
+        contexto.Vagas.AddRange(vagasSegundoAndar);
+        contexto.SaveChanges();
     }
 
     private void NotifyIcon_Click(object? sender, EventArgs e)

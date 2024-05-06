@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -17,12 +18,26 @@ public class VeiculoDAO: IVeiculoDAO
     }
 
     public async Task<List<Veiculo>> BuscarVeiculosPorPlaca(string placa) 
-        => await _contexto.Veiculos.Where(v => v.Placa.Contains(placa)).Take(10).ToListAsync();
+        => await _contexto.Veiculos
+                 .Include(v => v.Vaga)
+                 .Where(v => v.Placa.Contains(placa) && v.Vaga == null)
+                 .Take(10).ToListAsync();
+
+    public async Task<bool> ExisteVeiculoComPlaca(string placa) 
+        => await _contexto.Veiculos.AnyAsync(v => v.Placa == placa);
 
     public async Task<int> Inserir(Veiculo veiculo)
     {
-        await _contexto.Veiculos.AddAsync(veiculo);
-        await _contexto.SaveChangesAsync();
-        return  veiculo.Id;
+        try
+        {
+            await _contexto.Veiculos.AddAsync(veiculo);
+            await _contexto.SaveChangesAsync();
+            return veiculo.Id;
+        }
+        catch (System.Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+            return 0;
+        }
     }
 }
