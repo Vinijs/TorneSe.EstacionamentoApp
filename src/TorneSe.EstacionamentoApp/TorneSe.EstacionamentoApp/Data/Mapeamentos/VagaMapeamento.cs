@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using TorneSe.EstacionamentoApp.Data.Entidades;
+using TorneSe.EstacionamentoApp.Core.Entidades;
 
 namespace TorneSe.EstacionamentoApp.Data.Mapeamentos;
 

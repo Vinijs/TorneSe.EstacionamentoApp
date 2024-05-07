@@ -3,19 +3,122 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:TorneSe.EstacionamentoApp.Dialogs"
         mc:Ignorable="d"
-        Title="Saída Veículo" Height="450" Width="600">
+        Title="Saída Veículo" 
+        Height="450" 
+        Width="600"
+        ResizeMode="NoResize">
     <Grid>
-        <TextBlock 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#0077C8" Offset="0"/>
+                <GradientStop Color="#2D3E8C" Offset="0.5"/>
+                <GradientStop Color="#9400D3" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    >
+            <Image Source="../Recursos/liberar_carro.png" Width="40" Height="40" Margin="10" />
+            <TextBlock 
             Text="Saída Veículo"
-            Grid.Row="0"
-            Grid.ColumnSpan="2"
-            Foreground="Black"
+            Foreground="White"
             FontWeight="Bold"
             FontSize="24"
-            HorizontalAlignment="Center"
-            Margin="0 0 0 30"
+            VerticalAlignment="Center"
+            Margin="10"
             />
+        </StackPanel>
+
+        <Border  
+                Grid.Row="1" 
+                BorderThickness="2" 
+                BorderBrush="White" 
+                CornerRadius="8"
+                Padding="20"
+                >
+            <StackPanel Orientation="Vertical">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Placa Veiculo :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    <TextBlock x:Name="dadosPlacaTextblock" Text="HUBA-9876" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Modelo/Marca :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    <TextBlock x:Name="dadosModeloMarcaTextBlock" Text="Corsa" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Vaga :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    <TextBlock x:Name="dadosVagaTextBlock" Text="A-11" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <StackPanel Grid.Row="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <Label Grid.Row="2" 
+                   Content="Formas Pagamentos Aceitas"
+                   Foreground="White" 
+                   FontWeight="Bold"
+                   HorizontalContentAlignment="Center"/>
+            <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Width="120" 
+                        Height="60" 
+                        Margin="0 0 10 0" 
+                        Background="Transparent" 
+                        CommandParameter="Pix"
+                        Click="Pagar_ButtonClick">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="../Recursos/pix_pagamento.png" Width="40" Height="30"/>
+                        <TextBlock Text="Pagar Com Pix" Foreground="White" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="120" 
+                        Height="60" 
+                        Margin="0 0 10 0" 
+                        Background="Transparent"
+                        CommandParameter="CartaoDeCredito"
+                        Click="Pagar_ButtonClick">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="../Recursos/credit_cards_pagamento.png" Width="40" Height="30"/>
+                        <TextBlock Text="Pagar Com Cartão" Foreground="White" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+                <Button Width="120" 
+                        Height="60" 
+                        Margin="0 0 10 0"
+                        Background="Transparent" 
+                        CommandParameter="Dinheiro"
+                        Click="Pagar_ButtonClick">
+                    <StackPanel Orientation="Vertical">
+                        <Image Source="../Recursos/dinheiro_pagamento.png" Width="40" Height="30"/>
+                        <TextBlock Text="Pagar Com Dinheiro" Foreground="White" VerticalAlignment="Center" FontWeight="Bold"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+            <Button Content="Liberar" Width="100" Height="40" Margin="10" Background="Transparent" Foreground="White" FontWeight="Bold"
+                    BorderBrush="White" BorderThickness="2" IsEnabled="False"/>
+            <Button Content="Cancelar" 
+                    Width="100" 
+                    Height="40" 
+                    Margin="10" 
+                    Background="Transparent" 
+                    Foreground="White" 
+                    FontWeight="Bold" 
+                    BorderBrush="White" 
+                    BorderThickness="2"
+                    Click="Cancelar_ButtonClick"/>
+
+        </StackPanel>
+
     </Grid>
 </Window>

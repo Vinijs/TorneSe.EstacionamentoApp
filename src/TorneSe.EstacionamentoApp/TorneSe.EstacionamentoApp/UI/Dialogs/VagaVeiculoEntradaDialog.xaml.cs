@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
-using TorneSe.EstacionamentoApp.Data.Entidades;
+using TorneSe.EstacionamentoApp.Core.Entidades;
 using TorneSe.EstacionamentoApp.Store;
 using TorneSe.EstacionamentoApp.UI.Interfaces;
 
@@ -226,10 +226,10 @@ public partial class VagaVeiculoEntradaDialog : Window
     {
         var camposValido = ValidarCamposCondutor();
 
-        if (camposValido)
+        if (camposValido && _veiculo is not null)
         {
             await _veiculoBusiness.RealizarEntradaVeiculo(_veiculo!, _idVaga, nomeCondutorTextBox.Text, documentoTextBox.Text);
-            _store.OcuparVaga(_idVaga);
+            _store.OcuparVaga(_idVaga, _veiculo.Marca,_veiculo.Modelo, _veiculo.Placa);
             GerarTicketEntrada();
             Close();
         }

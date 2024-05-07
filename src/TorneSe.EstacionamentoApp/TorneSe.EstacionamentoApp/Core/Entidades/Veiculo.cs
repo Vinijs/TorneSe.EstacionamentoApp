@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TorneSe.EstacionamentoApp.Data.Entidades;
+namespace TorneSe.EstacionamentoApp.Core.Entidades;
 
 public class Veiculo
 {

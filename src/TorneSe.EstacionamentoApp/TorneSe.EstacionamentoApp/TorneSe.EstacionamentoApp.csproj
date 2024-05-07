@@ -10,13 +10,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="UI\Extensions\EstacionamentoOptions.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="UI\Recursos\botao-home.png" />
     <None Remove="UI\Recursos\configuracoes.png" />
+    <None Remove="UI\Recursos\credit_cards_pagamento.png" />
     <None Remove="UI\Recursos\dados-do-usuario.png" />
     <None Remove="UI\Recursos\desligar.png" />
+    <None Remove="UI\Recursos\dinheiro_pagamento.png" />
     <None Remove="UI\Recursos\home.png" />
     <None Remove="UI\Recursos\liberar_carro.png" />
     <None Remove="UI\Recursos\parking.png" />
+    <None Remove="UI\Recursos\pix_pagamento.png" />
     <None Remove="UI\Recursos\registrar_carro.png" />
     <None Remove="UI\Recursos\relatorio.png" />
     <None Remove="UI\Recursos\seta_direita.png" />
@@ -36,6 +43,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="6.0.0" />
+    <PackageReference Include="QRCoder" Version="1.4.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,10 +53,16 @@
     <Resource Include="UI\Recursos\configuracoes.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="UI\Recursos\credit_cards_pagamento.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="UI\Recursos\dados-do-usuario.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="UI\Recursos\desligar.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="UI\Recursos\dinheiro_pagamento.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="UI\Recursos\home.png">
@@ -58,6 +72,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="UI\Recursos\parking.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="UI\Recursos\pix_pagamento.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="UI\Recursos\registrar_carro.png">
@@ -78,6 +95,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="UI\Recursos\tornese.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

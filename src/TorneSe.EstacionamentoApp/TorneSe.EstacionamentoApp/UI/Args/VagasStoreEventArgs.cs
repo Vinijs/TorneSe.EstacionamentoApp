@@ -1,5 +1,5 @@
 ﻿using System;
-using TorneSe.EstacionamentoApp.Data.Dtos;
+using TorneSe.EstacionamentoApp.Core.Comum;
 
 namespace TorneSe.EstacionamentoApp.UI.Args;
 

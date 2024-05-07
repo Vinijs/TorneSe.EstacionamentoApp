@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Controls;
-using TorneSe.EstacionamentoApp.Data.Dtos;
+using TorneSe.EstacionamentoApp.Core.Comum;
 using TorneSe.EstacionamentoApp.Store;
 using TorneSe.EstacionamentoApp.UI.Interfaces;
 

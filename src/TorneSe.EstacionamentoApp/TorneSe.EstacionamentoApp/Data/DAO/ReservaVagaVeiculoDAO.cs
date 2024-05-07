@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Threading.Tasks;
+using TorneSe.EstacionamentoApp.Core.Entidades;
 using TorneSe.EstacionamentoApp.Data.Contexto;
 using TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
-using TorneSe.EstacionamentoApp.Data.Entidades;
 
 namespace TorneSe.EstacionamentoApp.Data.DAO;
 
@@ -26,4 +27,11 @@ public class ReservaVagaVeiculoDAO : IReservaVagaVeiculoDAO
             Console.WriteLine(ex.Message);
         }
     }
+
+    public async Task<ReservaVagaVeiculo> ObterReservaVagaVeiculo(int idVeiculo, int idVaga) 
+        => await _contexto.ReservaVagaVeiculos
+            .FirstOrDefaultAsync(rv => rv.IdVeiculo == idVeiculo
+                                 && rv.IdVaga == idVaga
+                                 && rv.HoraSaida == null
+                                 && rv.ValorCobrado == null);
 }

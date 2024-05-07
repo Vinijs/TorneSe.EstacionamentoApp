@@ -1,0 +1,92 @@
+﻿<Window x:Class="TorneSe.EstacionamentoApp.UI.Dialogs.PagamentosDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Informações para Pagamento" 
+        Height="450" 
+        Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#0077C8" Offset="0" />
+                <GradientStop Color="#2D3E8C" Offset="0.5" />
+                <GradientStop Color="#9400D3" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" 
+              Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border  
+                BorderThickness="2" 
+                BorderBrush="White" 
+                CornerRadius="8"
+                Padding="20"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Grid.Row="0"
+                Grid.Column="0"
+                >
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Hora Entrada :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="dadosHoraEntradaTextblock" Text="05/07/2023 13:00" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Hora Saida :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="dadosHoraSaidaTextBlock" Text="05/07/2023 16:00" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Total Horas :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="dadosTotalHorasTextBlock" Text="3 horas" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Valor Hora :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="dadosValorHoraTextBlock" Text="R$10,00" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Valor Total :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="dadosValorTotalTextBlock" Text="R$30,00" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <TextBlock Text="Tipo Pagamento :" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                        <TextBlock x:Name="dadosTipoPagamentoTextBlock" Text="Pix" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="16" Foreground="White" Margin="10" FontWeight="Bold"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <StackPanel Grid.Row="1"
+                        Grid.Column="0"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center">
+                <Button Content="Confirmar" Width="100" Height="30" Margin="10" Background="Transparent" Foreground="White" FontWeight="Bold" BorderBrush="White" BorderThickness="2"/>
+                <Button Content="Cancelar" Width="100" Height="30" Margin="10" Background="Transparent" Foreground="White" FontWeight="Bold" BorderBrush="White" BorderThickness="2" Click="Cancelar_ButtonClick"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="pagamentoGrid"
+              Grid.Row="0"
+              Grid.Column="1"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              >
+
+        </Grid>
+    </Grid>
+</Window>

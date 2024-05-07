@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Componentes;
 using TorneSe.EstacionamentoApp.Store;
+using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Views;
 
@@ -13,7 +14,9 @@ namespace TorneSe.EstacionamentoApp.Views;
 /// </summary>
 public partial class SaidaVeiculosView : UserControl
 {
-    private readonly VagasStore _veiculosStore;
+    private readonly VagasStore _vagasStore;
+    private readonly IVeiculoBusiness _veiculoBusiness;
+
     private int _pagina = 1;
     private const int _paginaInicial = 1;
     private int _porPagina = 20;
@@ -21,18 +24,19 @@ public partial class SaidaVeiculosView : UserControl
 
     private const string _componente = "Saida";
 
-    public SaidaVeiculosView(VagasStore veiculosStore)
+    public SaidaVeiculosView(VagasStore veiculosStore, IVeiculoBusiness veiculoBusiness)
     {
         InitializeComponent();
-        _veiculosStore = veiculosStore;
-        _totalPaginas = (int)Math.Ceiling(_veiculosStore.VagasOcupadas.Count / (double)_porPagina);
+        _vagasStore = veiculosStore;
+        _veiculoBusiness = veiculoBusiness;
+        _totalPaginas = (int)Math.Ceiling(_vagasStore.VagasOcupadas.Count / (double)_porPagina);
         MontarComponente();
     }
     private void MontarComponente()
     {
-        var vagas = _veiculosStore.VagasOcupadas.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
+        var vagas = _vagasStore.VagasOcupadas.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente, null, _veiculosStore);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness, _vagasStore);
         vagasControl.Visibility = Visibility.Visible;
         loadingControl.Visibility = Visibility.Collapsed;
         buscaVagaTextBox.IsEnabled = true;
@@ -82,7 +86,7 @@ public partial class SaidaVeiculosView : UserControl
         if (sender is not TextBox textBox)
             return;
 
-        var vagas = _veiculosStore.VagasOcupadas.Where(v => v.Placa.Contains(textBox.Text)).ToList();
+        var vagas = _vagasStore.VagasOcupadas.Where(v => v.Placa.Contains(textBox.Text)).ToList();
 
         if (!vagas.Any())
         {
@@ -90,6 +94,6 @@ public partial class SaidaVeiculosView : UserControl
             return;
         }
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente, null!, _veiculosStore);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness, _vagasStore);
     }
 }

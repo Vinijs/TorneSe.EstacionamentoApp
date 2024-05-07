@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using TorneSe.EstacionamentoApp.Data.Entidades;
+using TorneSe.EstacionamentoApp.Core.Entidades;
 
 namespace TorneSe.EstacionamentoApp.Data.DAO.Interfaces;
 

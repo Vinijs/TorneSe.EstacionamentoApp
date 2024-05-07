@@ -19,6 +19,9 @@
     <Compile Update="UI\Componentes\VagaVeiculoCardControl.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UI\Dialogs\PagamentosDialog.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="UI\Dialogs\VagaVeiculoEntradaDialog.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -55,6 +58,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Componentes\VagaVeiculoCardControl.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="UI\Dialogs\PagamentosDialog.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="UI\Dialogs\VagaVeiculoEntradaDialog.xaml">

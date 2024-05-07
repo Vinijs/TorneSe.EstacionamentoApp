@@ -8,7 +8,9 @@ using TorneSe.EstacionamentoApp.UI.Extensions;
 using TorneSe.EstacionamentoApp.Data.Contexto;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using TorneSe.EstacionamentoApp.Data.Entidades;
+using Microsoft.Extensions.Configuration;
+using System.IO;
+using TorneSe.EstacionamentoApp.Core.Entidades;
 
 namespace TorneSe.EstacionamentoApp;
 
@@ -29,6 +31,13 @@ public partial class App : Application
             .AddBusiness()
             .AddFactories()
             .AddViews()
+            .ConfigureHostConfiguration(config =>
+            {
+                config.SetBasePath(Directory.GetCurrentDirectory());
+                config.AddJsonFile("appsettings.json", optional: false);
+                config.AddEnvironmentVariables();
+            })
+            .AddOptions()
             .Build();
     }
 
