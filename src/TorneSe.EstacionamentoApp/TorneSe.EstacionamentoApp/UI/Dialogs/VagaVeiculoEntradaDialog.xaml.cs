@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Printing;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
 using System.Windows.Media;
+using TorneSe.EstacionamentoApp.Business.Exceptions;
 using TorneSe.EstacionamentoApp.Core.Entidades;
 using TorneSe.EstacionamentoApp.Store;
+using TorneSe.EstacionamentoApp.UI.Helpers;
 using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Dialogs;
@@ -228,109 +227,25 @@ public partial class VagaVeiculoEntradaDialog : Window
 
         if (camposValido && _veiculo is not null)
         {
-            await _veiculoBusiness.RealizarEntradaVeiculo(_veiculo!, _idVaga, nomeCondutorTextBox.Text, documentoTextBox.Text);
-            _store.OcuparVaga(_idVaga, _veiculo.Marca,_veiculo.Modelo, _veiculo.Placa);
-            GerarTicketEntrada();
-            Close();
-        }
-    }
-
-    private void GerarTicketEntrada()
-        {
-            // Crie uma instância da classe PrintDialog
-            PrintDialog printDialog = new();
-
-            if (printDialog.ShowDialog() == true)
+            try
             {
-                // Configurar o conteúdo a ser impresso
-                FixedDocument document = new();
-                PageContent pageContent = new();
-                FixedPage fixedPage = new();
-
-                // Obter a data e hora atual
-                DateTime dataHoraAtual = DateTime.Now;
-
-                //Campos do ticket
-                TextBlock textBlockTitulo = new()
-                {
-                    Text = $"Ticket de Entrada - Data e Hora: {dataHoraAtual.ToString("dd/MM/yyyy HH:mm:ss")}",
-                    FontSize = 20,
-                    FontWeight = FontWeights.Bold
-                };
-                FixedPage.SetLeft(textBlockTitulo, 10);
-                FixedPage.SetTop(textBlockTitulo, 0);
-                fixedPage.Children.Add(textBlockTitulo);
-
-                TextBlock dadosVeiculosTextBlock = new()
-                {
-                    Text = "Dados do Veículo",
-                    FontSize = 16,
-                    FontWeight = FontWeights.Bold
-                };
-                FixedPage.SetLeft(dadosVeiculosTextBlock, 10);
-                FixedPage.SetTop(dadosVeiculosTextBlock, 40);
-                fixedPage.Children.Add(dadosVeiculosTextBlock);
-
-                TextBlock textBlockPlaca = new()
-                {
-                    Text = "Placa: " + placaInfoTextBlock.Text,
-                    FontSize = 14
-                };
-                FixedPage.SetLeft(textBlockPlaca, 10);
-                FixedPage.SetTop(textBlockPlaca, 100);
-                fixedPage.Children.Add(textBlockPlaca);
-
-                TextBlock textBlockModelo = new()
-                {
-                    Text = "Modelo: " + modeloInfoTextBlock.Text,
-                    FontSize = 14
-                };
-                FixedPage.SetLeft(textBlockModelo, 10);
-                FixedPage.SetTop(textBlockModelo, 120);
-                fixedPage.Children.Add(textBlockModelo);
-
-                TextBlock textBlockMarca = new()
-                {
-                    Text = "Marca: " + marcaInfoTextBlock.Text,
-                    FontSize = 14
-                };
-                FixedPage.SetLeft(textBlockMarca, 10);
-                FixedPage.SetTop(textBlockMarca, 140);
-                fixedPage.Children.Add(textBlockMarca);
-
-                TextBlock textBlockCor = new()
-                {
-                    Text = "Cor: " + corInfoTextBlock.Text,
-                    FontSize = 14
-                };
-                FixedPage.SetLeft(textBlockCor, 10);
-                FixedPage.SetTop(textBlockCor, 160);
-                fixedPage.Children.Add(textBlockCor);
-
-                TextBlock textBlockAno = new()
-                {
-                    Text = "Ano: " + anoInfoTextBlock.Text,
-                    FontSize = 14
-                };
-                FixedPage.SetLeft(textBlockAno, 10);
-                FixedPage.SetTop(textBlockAno, 180);
-                fixedPage.Children.Add(textBlockAno);
-
-                // Adicionar a página fixa ao documento
-                ((System.Windows.Markup.IAddChild)pageContent).AddChild(fixedPage);
-                document.Pages.Add(pageContent);
-
-                // Definir o tamanho do papel
-                printDialog.PrintTicket.PageMediaSize = new PageMediaSize(PageMediaSizeName.ISOA7);
-                printDialog.PrintTicket.OutputColor = OutputColor.Monochrome;
-                printDialog.PrintTicket.PageOrientation = PageOrientation.Portrait;
-                printDialog.PrintTicket.PageBorderless = PageBorderless.None;
-
-                // Imprimir o conteúdo
-                printDialog.PrintDocument(document.DocumentPaginator, "Ticket de Estacionamento");
+                await _veiculoBusiness.RealizarEntradaVeiculo(_veiculo!, _idVaga, nomeCondutorTextBox.Text, documentoTextBox.Text);
+                _store.OcuparVaga(_idVaga, _veiculo.Marca, _veiculo.Modelo, _veiculo.Placa);
+                DialogHelper.GerarTicketEntrada(_veiculo);
+            }
+            catch (Exception ex)
+            {
+                if (ex is BusinessException businessException)
+                    MessageBox.Show(businessException.Message, "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                else
+                    MessageBox.Show("Ocorreu um erro ao realizar a entrada do veículo", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            finally
+            {
+                Close();
             }
         }
-    
+    }   
 
     private void CancelarDados_Click(object sender, RoutedEventArgs e) 
         => Cancelar_Click(sender, e);

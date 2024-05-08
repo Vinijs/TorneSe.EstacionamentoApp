@@ -17,7 +17,7 @@ public class ResumoSaida
     }
 
     public decimal ValorHora { get; set; }
-    public decimal ValotTotal
+    public decimal ValorTotal
     {
         get 
         {

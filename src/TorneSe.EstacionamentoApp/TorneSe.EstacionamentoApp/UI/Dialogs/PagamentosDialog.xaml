@@ -21,11 +21,12 @@
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
         <Grid Grid.Row="0" 
-              Grid.Column="0">
+              Grid.Column="0"
+              x:Name="informacoesPagamentoGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
@@ -75,7 +76,7 @@
                         Orientation="Horizontal"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center">
-                <Button Content="Confirmar" Width="100" Height="30" Margin="10" Background="Transparent" Foreground="White" FontWeight="Bold" BorderBrush="White" BorderThickness="2"/>
+                <Button Content="Confirmar" Width="100" Height="30" Margin="10" Background="Transparent" Foreground="White" FontWeight="Bold" BorderBrush="White" BorderThickness="2" Click="Confirmar_ButtonClick"/>
                 <Button Content="Cancelar" Width="100" Height="30" Margin="10" Background="Transparent" Foreground="White" FontWeight="Bold" BorderBrush="White" BorderThickness="2" Click="Cancelar_ButtonClick"/>
             </StackPanel>
         </Grid>
@@ -85,8 +86,19 @@
               Grid.Column="1"
               VerticalAlignment="Center"
               HorizontalAlignment="Center"
+              Visibility="Collapsed"
+              Margin="50"
               >
-
+            <Image x:Name="qrcodeImage" Width="200" Height="200" Margin="10" Visibility="Collapsed"/>
+            <TextBlock
+                x:Name="dadosQrCodeTextBlock"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="16"
+                Foreground="Red"
+                Margin="10"
+                FontWeight="Bold"
+                Visibility="Collapsed"/>
         </Grid>
     </Grid>
 </Window>

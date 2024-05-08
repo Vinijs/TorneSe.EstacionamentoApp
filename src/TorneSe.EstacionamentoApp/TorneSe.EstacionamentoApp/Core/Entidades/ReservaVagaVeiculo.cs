@@ -1,4 +1,5 @@
 ﻿using System;
+using TorneSe.EstacionamentoApp.Business.Enums;
 
 namespace TorneSe.EstacionamentoApp.Core.Entidades;
 
@@ -11,6 +12,7 @@ public class ReservaVagaVeiculo
     public decimal? ValorCobrado { get; set; } = null!;
     public string NomeCondutor { get; set; } = null!;
     public string DocumentoCondutor { get; set; } = null!;
+    public FormaPagamento? FormaPagamento { get; set; } = null!;
     public int IdVaga { get; set; }
     public int IdVeiculo { get; set; }
     public Vaga Vaga { get; set; } = null!;

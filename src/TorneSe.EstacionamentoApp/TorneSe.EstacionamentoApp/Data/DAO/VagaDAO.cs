@@ -16,23 +16,29 @@ public class VagaDAO: IVagaDAO
     public async Task<bool> ExisteVagaOcupadaComVeiculoInformado(int idVeiculo) 
         => await _contexto.Vagas.AnyAsync(v => v.IdVeiculo == idVeiculo && v.Ocupada);
 
+    public async Task MarcarComoLivre(int idVaga)
+    {
+        var vaga = await _contexto.Vagas.FirstOrDefaultAsync(v => v.Id == idVaga);
+
+        if (vaga is not null)
+        {
+            vaga.Ocupada = false;
+            vaga.IdVeiculo = null;
+
+            await _contexto.SaveChangesAsync();
+        }
+    }
+
     public async Task MarcarComoOcupada(int idVaga, int idVeiculo)
     {
-        try
-        {
             var vaga = await _contexto.Vagas.FirstOrDefaultAsync(v => v.Id == idVaga);
 
             if (vaga is not null)
             {
                 vaga.Ocupada = true;
                 vaga.IdVeiculo = idVeiculo;
+                
+                await _contexto.SaveChangesAsync();
             }
-
-            await _contexto.SaveChangesAsync();
-        }
-        catch (System.Exception ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
     }
 }

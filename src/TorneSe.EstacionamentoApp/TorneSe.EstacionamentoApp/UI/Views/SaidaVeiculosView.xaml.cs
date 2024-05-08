@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Microsoft.Extensions.Options;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Componentes;
+using TorneSe.EstacionamentoApp.Configs;
+using TorneSe.EstacionamentoApp.Notifications.Interfaces;
 using TorneSe.EstacionamentoApp.Store;
+using TorneSe.EstacionamentoApp.UI.Args;
 using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Views;
@@ -16,6 +20,8 @@ public partial class SaidaVeiculosView : UserControl
 {
     private readonly VagasStore _vagasStore;
     private readonly IVeiculoBusiness _veiculoBusiness;
+    private readonly IOptions<ConfiguracoesAplicacao> _options;
+    private readonly INotificationService _notificationService;
 
     private int _pagina = 1;
     private const int _paginaInicial = 1;
@@ -24,19 +30,32 @@ public partial class SaidaVeiculosView : UserControl
 
     private const string _componente = "Saida";
 
-    public SaidaVeiculosView(VagasStore veiculosStore, IVeiculoBusiness veiculoBusiness)
+    public SaidaVeiculosView(VagasStore veiculosStore, 
+                             IVeiculoBusiness veiculoBusiness,
+                             IOptions<ConfiguracoesAplicacao> options,
+                             INotificationService notificationService)
     {
         InitializeComponent();
         _vagasStore = veiculosStore;
         _veiculoBusiness = veiculoBusiness;
+        _options = options;
+        _notificationService = notificationService;
         _totalPaginas = (int)Math.Ceiling(_vagasStore.VagasOcupadas.Count / (double)_porPagina);
         MontarComponente();
+        veiculosStore.StoreChanged += VeiculosStore_StoreChanged;
     }
+
+    private void VeiculosStore_StoreChanged(object? sender, VagasStoreEventArgs e)
+    {
+        _notificationService.Notificar(1000, "Saída Veiculo Realizada", $"A vaga {e.ResumoVaga.NomeVaga} foi liberada!");
+        MontarComponente();
+    }
+
     private void MontarComponente()
     {
         var vagas = _vagasStore.VagasOcupadas.Skip((_pagina - 1) * _porPagina).Take(_porPagina).ToList();
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness, _vagasStore);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness, _vagasStore, _options);
         vagasControl.Visibility = Visibility.Visible;
         loadingControl.Visibility = Visibility.Collapsed;
         buscaVagaTextBox.IsEnabled = true;
@@ -94,6 +113,6 @@ public partial class SaidaVeiculosView : UserControl
             return;
         }
 
-        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness, _vagasStore);
+        vagasControl.Content = new VagasGridControl(vagas, _componente, _veiculoBusiness, _vagasStore, _options);
     }
 }

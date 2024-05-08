@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using TorneSe.EstacionamentoApp.Business.Exceptions;
 using TorneSe.EstacionamentoApp.Configs;
 using TorneSe.EstacionamentoApp.Core.Comum;
 using TorneSe.EstacionamentoApp.Core.Entidades;
@@ -33,7 +34,7 @@ public class VeiculoBusiness : IVeiculoBusiness
     public async Task<ResumoSaida> ObterResumoSaida(int idVeiculo, int idVaga)
     {
         var reservaVaga = await _reservaVagaVeiculoDAO.ObterReservaVagaVeiculo(idVeiculo, idVaga)
-           ?? throw new Exception("Não foi possível encontrar a reserva da vaga");
+           ?? throw new BusinessException("Não foi possível encontrar a reserva da vaga");
 
         return new ResumoSaida
         {
@@ -49,7 +50,7 @@ public class VeiculoBusiness : IVeiculoBusiness
         if(veiculo.Id is default(int))
         {
             if (await _veiculoDAO.ExisteVeiculoComPlaca(veiculo.Placa))
-                throw new Exception("O veiculo informado já ocupa alguma vaga");
+                throw new BusinessException("O veiculo informado já ocupa alguma vaga");
 
             veiculo.Id = await _veiculoDAO.Inserir(veiculo);
         }
@@ -66,5 +67,15 @@ public class VeiculoBusiness : IVeiculoBusiness
                 DocumentoCondutor = documentoCondutor
             });
         }
+    }
+
+    public async Task RealizarSaidaVeiculo(ResumoSaida resumoSaida, int idVeiculo, int idVaga)
+    {
+        await _vagaDAO.MarcarComoLivre(idVaga);
+
+        var reservaVaga = await _reservaVagaVeiculoDAO.ObterReservaVagaVeiculo(idVeiculo, idVaga)
+            ?? throw new BusinessException("Não foi possivel encontrar a reserva da vaga");
+
+        await _reservaVagaVeiculoDAO.Atualizar(reservaVaga, resumoSaida);
     }
 }

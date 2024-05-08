@@ -10,4 +10,5 @@ public interface IVeiculoBusiness
     Task<List<Veiculo>> ObterPorPlaca(string placa);
     Task RealizarEntradaVeiculo(Veiculo veiculo, int idVaga, string nomeCondutor, string documentoCondutor);
     Task<ResumoSaida> ObterResumoSaida(int idVeiculo, int idVaga);
+    Task RealizarSaidaVeiculo(ResumoSaida resumoSaida, int idVeiculo, int idVaga);
 }

@@ -106,7 +106,7 @@
 
         <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
             <Button Content="Liberar" Width="100" Height="40" Margin="10" Background="Transparent" Foreground="White" FontWeight="Bold"
-                    BorderBrush="White" BorderThickness="2" IsEnabled="False"/>
+                    BorderBrush="White" BorderThickness="2" IsEnabled="False" x:Name="liberarButton" Click="Liberar_ButtonClick"/>
             <Button Content="Cancelar" 
                     Width="100" 
                     Height="40" 

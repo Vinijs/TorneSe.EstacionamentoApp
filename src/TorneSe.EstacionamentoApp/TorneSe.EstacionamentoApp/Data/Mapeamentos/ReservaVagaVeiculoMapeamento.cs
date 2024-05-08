@@ -37,6 +37,10 @@ public class ReservaVagaVeiculoMapeamento : IEntityTypeConfiguration<ReservaVaga
             .HasMaxLength(20)
             .IsRequired();
 
+        builder.Property(rv => rv.FormaPagamento)
+            .HasConversion<string>()
+            .IsRequired(false);
+
         builder.HasOne(rv => rv.Vaga)
             .WithMany(v => v.Reservas)
             .HasForeignKey(rv => rv.IdVaga);
