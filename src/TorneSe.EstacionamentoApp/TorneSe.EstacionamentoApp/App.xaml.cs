@@ -67,7 +67,11 @@ public partial class App : Application
         if (contexto.Database.GetPendingMigrations().Any())
             contexto.Database.Migrate();
 
+        
         contexto.Database.EnsureCreated();
+
+        if (contexto.Vagas.Any())
+            return;
 
         var vagasPrimeiroAndar = Enumerable.Range(1, 20)
             .Select(x => new Vaga() { Andar = 1, Codigo = "A", Numero = x, Ocupada = false })

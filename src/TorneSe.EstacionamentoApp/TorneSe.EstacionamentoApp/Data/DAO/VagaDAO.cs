@@ -41,4 +41,10 @@ public class VagaDAO: IVagaDAO
                 await _contexto.SaveChangesAsync();
             }
     }
+
+    public async Task<int> ObterContagemDeVagas() 
+        => await _contexto.Vagas.CountAsync();
+
+    public Task<int> ObterContagemDeVagasOcupadas() 
+        => _contexto.Vagas.CountAsync(v => v.Ocupada);
 }

@@ -7,4 +7,6 @@ public interface IVagaDAO
     Task MarcarComoOcupada(int idVaga, int idVeiculo);
     Task<bool> ExisteVagaOcupadaComVeiculoInformado(int idVeiculo);
     Task MarcarComoLivre(int idVaga);
+    Task<int> ObterContagemDeVagas();
+    Task<int> ObterContagemDeVagasOcupadas();
 }

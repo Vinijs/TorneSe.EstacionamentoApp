@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TorneSe.EstacionamentoApp.Business;
+using TorneSe.EstacionamentoApp.Business.Interfaces;
 using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Extensions;
@@ -12,6 +13,7 @@ public static class AddBusinessHostBuilderExtensions
         hostBuilder.ConfigureServices(services =>
         {
             services.AddTransient<IVeiculoBusiness, VeiculoBusiness>();
+            services.AddTransient<IReservaBusiness, ReservaBusiness>();
         });
 
         return hostBuilder;

@@ -11,7 +11,7 @@ using TorneSe.EstacionamentoApp.UI.Interfaces;
 
 namespace TorneSe.EstacionamentoApp.Business;
 
-public class VeiculoBusiness : IVeiculoBusiness
+public sealed class VeiculoBusiness : IVeiculoBusiness
 {
     private readonly IVeiculoDAO _veiculoDAO;
     private readonly IReservaVagaVeiculoDAO _reservaVagaVeiculoDAO;
