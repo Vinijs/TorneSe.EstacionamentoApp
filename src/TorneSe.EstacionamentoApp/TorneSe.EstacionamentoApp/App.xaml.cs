@@ -11,6 +11,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using TorneSe.EstacionamentoApp.Core.Entidades;
+using TorneSe.EstacionamentoApp.UI.Views;
 
 namespace TorneSe.EstacionamentoApp;
 
@@ -54,7 +55,7 @@ public partial class App : Application
         _notify.ContextMenuStrip.Items.Add("Sair", null, SairAplicacaoMenuStrip_Click);
         _notify.Click += NotifyIcon_Click;
 
-        MainWindow = _host.Services.GetRequiredService<MainWindow>();
+        MainWindow = _host.Services.GetRequiredService<LoginWindow>();
         MainWindow.Show();
 
         base.OnStartup(e);

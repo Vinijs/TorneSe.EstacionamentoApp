@@ -96,7 +96,8 @@
                         Values="70" />
                 </lvc:PieChart.Series>
             </lvc:PieChart>
-            <lvc:Gauge Grid.Column="1" 
+            <lvc:Gauge x:Name="gaugeChart"
+                           Grid.Column="1" 
                            Margin="5"
                            FontWeight="Bold"
                            Foreground="White"
@@ -157,7 +158,8 @@
                 <Button
                     Margin="10,0,0,0"
                     Background="Transparent"
-                    Foreground="DodgerBlue">
+                    Foreground="DodgerBlue"
+                    Click="FaturamentoMensalFilterButtonFilter_Click">
                     <Button.Content>
                         <materialIcons:MaterialIcon Kind="Filter" />
                     </Button.Content>
@@ -218,7 +220,8 @@
                 <Button
                     Margin="10,0,0,0"
                     Background="Transparent"
-                    Foreground="DodgerBlue">
+                    Foreground="DodgerBlue"
+                    Click="FaturamentoPorFormaPagamentoButtonFilter_Click">
                     <Button.Content>
                         <materialIcons:MaterialIcon Kind="Filter" />
                     </Button.Content>
@@ -244,22 +247,21 @@
                 FontSize="10"
                 FontWeight="Bold"
                 Foreground="White"
-                Text="Exportar" />
+                Text="Exportar Faturamento Mensal Selecionado" />
             <Button
                 Width="100"
                 Height="20"
-                Margin="5"
+                Margin="40,5,5,5"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
                 Background="Transparent"
+                Click="ExportarDadosReservasButton_Click"
                 Foreground="Green">
                 <Button.Content>
                     <materialIcons:MaterialIcon Kind="Download" />
                 </Button.Content>
             </Button>
         </StackPanel>
-
-
-
+        
     </Grid>
 </UserControl>
