@@ -7,6 +7,7 @@ public class EstacionamentoContexto : DbContext
 {
     public DbSet<Vaga> Vagas { get; set; }
     public DbSet<Veiculo> Veiculos { get; set; }
+    public DbSet<Usuario> Usuarios { get; set; }
     public DbSet<ReservaVagaVeiculo> ReservaVagaVeiculos { get; set; }
 
     public EstacionamentoContexto(DbContextOptions<EstacionamentoContexto> options)

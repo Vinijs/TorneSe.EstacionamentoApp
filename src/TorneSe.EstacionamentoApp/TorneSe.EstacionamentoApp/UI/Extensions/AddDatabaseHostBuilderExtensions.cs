@@ -33,6 +33,7 @@ public static class AddDatabaseHostBuilderExtensions
             services.AddTransient<IVeiculoDAO, VeiculoDAO>();
             services.AddTransient<IReservaVagaVeiculoDAO, ReservaVagaVeiculoDAO>();
             services.AddTransient<IVagaDAO, VagaDAO>();
+            services.AddTransient<IUsuarioDAO, UsuarioDAO>();
         });
         return hostBuilder;
     }

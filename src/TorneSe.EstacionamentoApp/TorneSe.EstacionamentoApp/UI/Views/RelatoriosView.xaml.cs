@@ -65,6 +65,9 @@ public partial class RelatoriosView : UserControl
 
     private void PreencherInformacoesFaturamentoMensal(List<ResumoFaturamentoMensal> valorFaturamentoMensal)
     {
+        if (!valorFaturamentoMensal.Any())
+            return;
+
         linhasChart.AxisX.Clear();
         linhasChart.AxisY.Clear();
         linhasChart.Series.Clear();
@@ -139,6 +142,9 @@ public partial class RelatoriosView : UserControl
 
     private void PreencherInformacoesFaturamentoPorFormaPagamento(List<ResumoFaturamentoFormaPagamento> valorFaturamentoPorFormaPagamento)
     {
+        if (!valorFaturamentoPorFormaPagamento.Any())
+            return;
+
         colunasChart.Series.Clear();
 
         colunasChart.AxisX.Clear();

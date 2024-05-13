@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using TorneSe.EstacionamentoApp.Enums;
 using TorneSe.EstacionamentoApp.Factories.Interfaces;
+using TorneSe.EstacionamentoApp.UI.Views;
 
 namespace TorneSe.EstacionamentoApp;
 
@@ -31,4 +33,7 @@ public partial class MainWindow : Window
 
     private void FecharAplicacao_Click(object sender, RoutedEventArgs e) 
         => Close();
+
+    private void MainWindow_Loaded(object sender, RoutedEventArgs e) 
+        => Application.Current.Windows.OfType<LoginWindow>().FirstOrDefault()?.Close();
 }

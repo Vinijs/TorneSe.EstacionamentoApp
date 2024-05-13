@@ -50,8 +50,10 @@ public sealed class ReservaBusiness : IReservaBusiness
 
         return new ResumoOcupacao
         {
+            QuantidadeOcupadas = vagasOcupadas,
             Ocupadas = Math.Round(porcentagemVagasOcupadas, 2),
-            Livres = Math.Round(porcentagemVagasLivres, 2)
+            Livres = Math.Round(porcentagemVagasLivres, 2),
+            QuantidadeLivres = vagasLivres
         };
 
     }

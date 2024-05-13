@@ -6,7 +6,7 @@
         xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
         mc:Ignorable="d"
         Title="Login" Height="500" Width="400"
-        ResizeMode="NoResize" WindowStartupLocation="CenterOwner">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
@@ -76,6 +76,7 @@
                     Click="LoginButton_Click"
                     Content="Login"
                     FontWeight="Bold"
+                    Cursor="Hand"
                     Foreground="White" />
                 <Button
                     Width="100"
@@ -87,6 +88,7 @@
                     Click="CancelarButton_Click"
                     Content="Cancelar"
                     FontWeight="Bold"
+                    Cursor="Hand"
                     Foreground="White" />
             </StackPanel>
 

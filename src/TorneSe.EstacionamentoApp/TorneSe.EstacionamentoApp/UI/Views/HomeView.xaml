@@ -34,9 +34,9 @@
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Vagas Disponiveis" Style="{StaticResource TextBoxGridOcupacao}"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Vagas Ocupadas" Style="{StaticResource TextBoxGridOcupacao}"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Porcentagem Ocupação" Style="{StaticResource TextBoxGridOcupacao}"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Text="20" Style="{StaticResource TextBoxGridOcupacao}"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="10" Style="{StaticResource TextBoxGridOcupacao}"/>
-                    <TextBlock Grid.Row="2" Grid.Column="1" Text="33%" Style="{StaticResource TextBoxGridOcupacao}"/>
+                    <TextBlock Grid.Row="0" x:Name="vagasDisponiveisTextBlock" Grid.Column="1" Text="20" Style="{StaticResource TextBoxGridOcupacao}"/>
+                    <TextBlock x:Name="vagasOcupadasTextBlock" Grid.Row="1" Grid.Column="1" Text="10" Style="{StaticResource TextBoxGridOcupacao}"/>
+                    <TextBlock x:Name="porcentagemOcupacaoTextBlock" Grid.Row="2" Grid.Column="1" Text="33%" Style="{StaticResource TextBoxGridOcupacao}"/>
                 </Grid>                
             </StackPanel>
 

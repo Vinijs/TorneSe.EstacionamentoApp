@@ -4,6 +4,7 @@ using System.Linq;
 using TorneSe.EstacionamentoApp.Core.Comum;
 using TorneSe.EstacionamentoApp.Data.Contexto;
 using TorneSe.EstacionamentoApp.Store;
+using TorneSe.EstacionamentoApp.UI.Store;
 
 namespace TorneSe.EstacionamentoApp.Extensions;
 
@@ -33,6 +34,8 @@ public static class AddStoresHostBuilderExtensions
 
                 return store;
             });
+
+            services.AddSingleton<UsuarioStore>();
         });
         return hostBuilder;
     }

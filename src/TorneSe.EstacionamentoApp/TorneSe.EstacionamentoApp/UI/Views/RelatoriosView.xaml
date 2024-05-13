@@ -158,8 +158,9 @@
                 <Button
                     Margin="10,0,0,0"
                     Background="Transparent"
+                    Click="FaturamentoMensalFilterButtonFilter_Click"
                     Foreground="DodgerBlue"
-                    Click="FaturamentoMensalFilterButtonFilter_Click">
+                    Cursor="Hand">
                     <Button.Content>
                         <materialIcons:MaterialIcon Kind="Filter" />
                     </Button.Content>
@@ -220,8 +221,9 @@
                 <Button
                     Margin="10,0,0,0"
                     Background="Transparent"
+                    Click="FaturamentoPorFormaPagamentoButtonFilter_Click"
                     Foreground="DodgerBlue"
-                    Click="FaturamentoPorFormaPagamentoButtonFilter_Click">
+                    Cursor="Hand">
                     <Button.Content>
                         <materialIcons:MaterialIcon Kind="Filter" />
                     </Button.Content>
@@ -256,6 +258,7 @@
                 VerticalAlignment="Center"
                 Background="Transparent"
                 Click="ExportarDadosReservasButton_Click"
+                Cursor="Hand"
                 Foreground="Green">
                 <Button.Content>
                     <materialIcons:MaterialIcon Kind="Download" />

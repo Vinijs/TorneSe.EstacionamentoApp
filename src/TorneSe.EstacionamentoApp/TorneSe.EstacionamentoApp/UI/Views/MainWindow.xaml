@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="Estacionamento App" Height="600" Width="1000" 
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen"
+        Loaded="MainWindow_Loaded">
     <Window.Resources>
         <Style x:Key="MenuItem" TargetType="Button">
             <Setter Property="Padding" Value="10" />
