@@ -14,6 +14,12 @@ public class UsuarioDAO : IUsuarioDAO
     public UsuarioDAO(EstacionamentoContexto contexto) 
         => _contexto = contexto;
 
+    public async Task Atualizar(Usuario usuario)
+    {
+        _contexto.Usuarios.Update(usuario);
+        await _contexto.SaveChangesAsync();
+    }
+
     public async Task Excluir(int id)
     {
         var usuario = await _contexto.Usuarios.FindAsync(id);
@@ -31,7 +37,7 @@ public class UsuarioDAO : IUsuarioDAO
         await _contexto.SaveChangesAsync();
     }
 
-    public async Task<IEnumerable<Usuario>> Listar() 
+    public async Task<List<Usuario>> Listar() 
         => await _contexto.Usuarios.ToListAsync();
 
     public async Task<Usuario> ObterPorLogin(string login) 

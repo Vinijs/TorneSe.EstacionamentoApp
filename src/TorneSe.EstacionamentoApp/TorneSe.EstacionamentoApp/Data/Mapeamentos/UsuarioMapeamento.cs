@@ -37,5 +37,9 @@ public class UsuarioMapeamento : IEntityTypeConfiguration<Usuario>
 
         builder.Property(x => x.DataCadastro)
             .IsRequired();
+
+        builder.Property(x => x.PathFoto)
+            .IsRequired(false)
+            .HasMaxLength(400);
     }
 }

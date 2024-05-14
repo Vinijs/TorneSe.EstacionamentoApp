@@ -58,7 +58,7 @@ public partial class App : Application
         _notify.ContextMenuStrip.Items.Add("Sair", null, SairAplicacaoMenuStrip_Click);
         _notify.Click += NotifyIcon_Click;
 
-        MainWindow = _host.Services.GetRequiredService<LoginWindow>();
+        MainWindow = _host.Services.GetRequiredService<MainWindow>();
         MainWindow.Show();
 
         base.OnStartup(e);
@@ -72,7 +72,7 @@ public partial class App : Application
         if (contexto.Database.GetPendingMigrations().Any())
             contexto.Database.Migrate();
 
-        
+
         contexto.Database.EnsureCreated();
         CadastrarVagasSeNecessario(contexto);
         CadastrarAdminSeNecessario(contexto,criptografia);

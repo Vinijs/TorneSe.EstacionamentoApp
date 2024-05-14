@@ -12,5 +12,6 @@ public class Usuario
     public string Email { get; set; } = null!;
     public TipoUsuario TipoUsuario { get; set; }
     public bool Ativo { get; set; }
+    public string PathFoto { get; set; }
     public DateTime DataCadastro { get; set; }
 }

@@ -7,4 +7,7 @@ public sealed class UsuarioStore
 
     public void DefinirUsuarioSessao(Usuario usuario) 
         => _usuario = usuario;
+
+    public Usuario? ObterUsuarioSessao() 
+        => _usuario;
 }

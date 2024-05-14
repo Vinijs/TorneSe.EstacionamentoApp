@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using TorneSe.EstacionamentoApp.Business.Interfaces;
 using TorneSe.EstacionamentoApp.Business.Services.Interfaces;
 using TorneSe.EstacionamentoApp.Core.Entidades;
@@ -17,6 +18,25 @@ public sealed class UsuarioBusiness : IUsuarioBusiness
         _criptografiaService = criptografiaService;
     }
 
+    public async Task AtualizarUsuario(Usuario usuario)
+    {
+        await _usuarioDAO.Atualizar(usuario);
+    }
+
+    public async Task CadastrarUsuario(Usuario usuario)
+    {
+        await _usuarioDAO.Inserir(usuario);
+    }
+
+    public async Task ExcluirUsuario(Usuario usuario)
+    {
+        if (!usuario.Ativo)
+            return;
+
+        usuario.Ativo = false;
+        await _usuarioDAO.Atualizar(usuario);
+    }
+
     public async Task<Usuario?> ObterUsuario(string username, string password)
     {
         var usuario = await _usuarioDAO.ObterPorLogin(username);
@@ -29,4 +49,7 @@ public sealed class UsuarioBusiness : IUsuarioBusiness
 
         return usuario;
     }
+
+    public async Task<List<Usuario>> ObterUsuarios() 
+        => await _usuarioDAO.Listar();
 }
