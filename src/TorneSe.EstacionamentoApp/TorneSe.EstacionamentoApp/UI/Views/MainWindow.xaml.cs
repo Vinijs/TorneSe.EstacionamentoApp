@@ -36,6 +36,13 @@ public partial class MainWindow : Window
         string pathFoto = usuario?.PathFoto ?? _pathFotoPadrao;
         string nomeUsuario = usuario?.Login ?? _nomeUsuarioPadrao;
 
+        if(usuario is not null && usuario.TipoUsuario is Core.Enums.TipoUsuario.Operador)
+        {
+            relatoriosButton.Visibility = Visibility.Collapsed;
+            usuariosButton.Visibility = Visibility.Collapsed;
+            configButton.Visibility = Visibility.Collapsed;
+        }
+
         avatarImage.Source = new BitmapImage(new Uri(pathFoto, UriKind.RelativeOrAbsolute));
         usuarioNomeTextBlock.Text = nomeUsuario;
     }

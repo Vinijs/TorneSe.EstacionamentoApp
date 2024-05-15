@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using TorneSe.EstacionamentoApp.Core.Entidades;
 using TorneSe.EstacionamentoApp.Data.Contexto;
@@ -43,4 +44,10 @@ public class UsuarioDAO : IUsuarioDAO
     public async Task<Usuario> ObterPorLogin(string login) 
         => await _contexto.Usuarios
             .FirstOrDefaultAsync(x => x.Login == login || x.Email == login);
+
+    public async Task<string> ObterHashSenhaUsuario(string login) 
+        => await _contexto.Usuarios
+            .Where(x => x.Login == login || x.Email == login)
+            .Select(x => x.Senha)
+            .FirstOrDefaultAsync();
 }

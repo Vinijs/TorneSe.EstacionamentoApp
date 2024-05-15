@@ -11,4 +11,5 @@ public interface IUsuarioDAO
     Task Inserir(Usuario usuario);
     Task Atualizar(Usuario usuario);
     Task Excluir(int id);
+    Task<string> ObterHashSenhaUsuario(string login);
 }

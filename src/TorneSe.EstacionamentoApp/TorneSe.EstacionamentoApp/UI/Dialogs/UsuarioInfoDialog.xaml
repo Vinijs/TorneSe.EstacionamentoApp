@@ -1,0 +1,184 @@
+﻿<Window x:Class="TorneSe.EstacionamentoApp.UI.Dialogs.UsuarioInfoDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialIcons="clr-namespace:Material.Icons.WPF;assembly=Material.Icons.WPF"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="UsuarioInfoDialog" Height="400" Width="600"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#0077C8" Offset="0" />
+                <GradientStop Color="#2D3E8C" Offset="0.5" />
+                <GradientStop Color="#9400D3" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            FontSize="24"
+            FontWeight="Bold"
+            Foreground="White"
+            Text="Informações Usuário"
+            TextDecorations="Underline" />
+
+        <StackPanel
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Orientation="Vertical">
+
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <Label
+                    Content="Nome:"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="nomeTextBox"
+                    Width="200"
+                    Margin="10,0,0,0"
+                    FontWeight="Bold" />
+            </StackPanel>
+
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <Label
+                    Content="Login :"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="loginTextBox"
+                    Width="200"
+                    Margin="10,0,0,0"
+                    FontWeight="Bold" />
+            </StackPanel>
+
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <Label
+                    Content="Email :"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="emailTextBox"
+                    Width="200"
+                    Margin="13,0,0,0"
+                    FontWeight="Bold" />
+            </StackPanel>
+
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <Label
+                    Content="Senha :"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="senhaTextBox"
+                    Width="200"
+                    Margin="10,0,0,0"
+                    FontWeight="Bold" />
+            </StackPanel>
+
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <Label
+                    Content="Foto :"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <TextBox
+                    x:Name="fotoTextBox"
+                    Width="200"
+                    Margin="18,0,0,0"
+                    FontWeight="Bold"
+                    IsEnabled="False" />
+                <Button Margin="5,0,0,0" Click="BuscarArquivo_ButtonClick">
+                    <Button.Content>
+                        <materialIcons:MaterialIcon Foreground="RosyBrown" Kind="FolderAdd" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <Label
+                    Content=" Ativo :"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <CheckBox
+                    x:Name="ativoCheckBox"
+                    Width="100"
+                    Margin="10,0,0,0"
+                    HorizontalContentAlignment="Left"
+                    VerticalContentAlignment="Center"
+                    Content="Ativo"
+                    FontWeight="Bold"
+                    Foreground="White" />
+            </StackPanel>
+            <StackPanel Margin="0,10,0,0" Orientation="Horizontal">
+                <Label
+                    Content=" Tipo Usuario :"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <CheckBox
+                    x:Name="adminCheckBox"
+                    Width="100"
+                    Margin="10,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Administrador"
+                    FontWeight="Bold"
+                    Foreground="White" />
+                <CheckBox
+                    x:Name="operadorCheckBox"
+                    Width="100"
+                    Margin="10,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Content="Operador"
+                    FontWeight="Bold"
+                    Foreground="White" />
+            </StackPanel>
+
+            <StackPanel
+                Margin="0,10,0,0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal">
+                <Button
+                    Width="50"
+                    Margin="10,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Click="Save_ButttonClick"
+                    Cursor="Hand"
+                    FontWeight="Bold"
+                    Foreground="DimGray">
+                    <Button.Content>
+                        <materialIcons:MaterialIcon Kind="ContentSave" />
+                    </Button.Content>
+                </Button>
+
+                <Button
+                    Width="50"
+                    Margin="10,0,0,0"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Background="Transparent"
+                    Click="Cancel_ButtonClick"
+                    Cursor="Hand"
+                    FontWeight="Bold"
+                    Foreground="IndianRed">
+                    <Button.Content>
+                        <materialIcons:MaterialIcon Kind="CancelBox" />
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+
+        </StackPanel>
+
+    </Grid>
+</Window>
